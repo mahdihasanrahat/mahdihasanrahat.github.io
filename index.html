@@ -1,0 +1,1539 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Md. Mahdi Hasan Rahat | EEE Portfolio</title>
+<meta name="description" content="Md. Mahdi Hasan Rahat, 3rd year EEE student at RUET. Researching power systems, renewable energy, and machine learning.">
+<meta name="theme-color" content="#06B6D4">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2306B6D4'/%3E%3Cpath d='M3 17c4-12 7-12 10 0s6 12 10 0 4-6 6-3' fill='none' stroke='%23fff' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;800&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<!-- FontAwesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+:root {
+  /* Light Theme */
+  --bg: #F0F4F8; --panel: rgba(255, 255, 255, 0.7); --ink: #0F172A; 
+  --mute: #475569; --line: rgba(203, 213, 225, 0.6); 
+  --blue: #2563EB; --cu: #EA580C; --teal: #059669; --purple: #7C3AED; --pink: #E11D48;
+  --cyan: #0891B2;
+  --soft: rgba(255, 255, 255, 0.5);
+  --d: "Bricolage Grotesque", system-ui, sans-serif;
+  --b: "Outfit", system-ui, sans-serif;
+  --glass-border: rgba(255, 255, 255, 0.8);
+  --glass-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.1);
+}
+[data-theme=dark] {
+  /* Dark Theme */
+  --bg: #070F1E; --panel: rgba(15, 23, 42, 0.4); --ink: #F8FAFC; 
+  --mute: #94A3B8; --line: rgba(51, 65, 85, 0.5); 
+  --blue: #3B82F6; --cu: #F59E0B; --teal: #10B981; --purple: #A78BFA; --pink: #F472B6;
+  --cyan: #22D3EE;
+  --soft: rgba(30, 41, 59, 0.4);
+  --glass-border: rgba(255, 255, 255, 0.05);
+  --glass-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.5);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 100px; }
+
+/* Large Actual Cursor Settings (White Arrow & Hand with Black Outline) */
+body { 
+  background: var(--bg); 
+  color: var(--ink); 
+  font: 400 1.05rem/1.7 var(--b); 
+  overflow-x: hidden; 
+  transition: background 0.5s ease, color 0.5s ease; 
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24'%3E%3Cpath d='M4 2v18l5-5 3.5 7 2-1-3.5-7 6-1.5z' fill='white' stroke='%23000' stroke-width='1.5' stroke-linejoin='round'/%3E%3C/svg%3E"), auto;
+}
+img { max-width: 100%; height: auto; }
+
+/* Large Actual Pointer Cursor */
+a, button, summary, .course-card, .interactive-card, .glass-tilt, .tab-btn { 
+  color: inherit; 
+  text-decoration: none; 
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24'%3E%3Cpath d='M10 11V4c0-1.1.9-2 2-2s2 .9 2 2v6h1c1.1 0 2 .9 2 2h1c1.1 0 2 .9 2 2v4c0 2.8-2.2 5-5 5h-4c-2.8 0-5-2.2-5-5v-6l-1.5 1.5c-.4.4-1 .4-1.4 0-.4-.4-.4-1 0-1.4l4.5-4.5c.4-.4 1-.4 1.4 0 .2.2.3.4.3.7 0 .2-.1.5-.3.7z' fill='white' stroke='%23000' stroke-width='1' stroke-linejoin='round'/%3E%3C/svg%3E"), pointer !important; 
+}
+.w { width: min(1200px, 100% - 2.5rem); margin-inline: auto; position: relative; z-index: 2; }
+
+/* Hidden Citations (Fixing the Cite Text Issue) */
+.hide-cite { display: none !important; opacity: 0; position: absolute; left: -9999px; }
+
+/* Custom Scrollbar */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: linear-gradient(var(--blue), var(--cyan)); border-radius: 10px; }
+
+/* Scroll Progress */
+#pg { position: fixed; top: 0; left: 0; height: 4px; width: 100%; background: linear-gradient(90deg, var(--blue), var(--cyan), var(--teal)); transform: scaleX(0); transform-origin: 0 50%; z-index: 100; }
+
+/* Header & Nav */
+header { position: sticky; top: 0; z-index: 50; background: color-mix(in srgb, var(--bg) 60%, transparent); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid var(--glass-border); }
+.bar { display: flex; align-items: center; justify-content: space-between; padding-block: 1rem; }
+.brand { font: 800 1.4rem var(--d); display: flex; align-items: center; gap: .6rem; transition: transform .3s ease; }
+.brand:hover { transform: scale(1.05); color: var(--cyan); }
+nav { display: flex; gap: 0.5rem; overflow-x: auto; scrollbar-width: none; }
+nav a { padding: .5rem 1.2rem; border-radius: 999px; color: var(--mute); font-weight: 600; font-size: 0.95rem; transition: all .3s ease; }
+nav a:hover, nav a.on { background: color-mix(in srgb, var(--cyan) 20%, transparent); color: var(--cyan); box-shadow: 0 0 15px color-mix(in srgb, var(--cyan) 25%, transparent); }
+.ic { width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--glass-border); background: var(--soft); color: var(--ink); display: grid; place-items: center; font-size: 1.2rem; transition: all .4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+.ic:hover { border-color: var(--cyan); color: var(--cyan); transform: rotate(180deg) scale(1.1); box-shadow: 0 0 20px color-mix(in srgb, var(--cyan) 40%, transparent); }
+
+/* Ambient Colorful Background Blobs */
+.bg-shapes { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; overflow: hidden; z-index: 0; pointer-events: none; }
+.shape { position: absolute; filter: blur(100px); opacity: 0.3; animation: float 25s infinite alternate ease-in-out; border-radius: 50%; mix-blend-mode: screen; }
+.s1 { width: 50vw; height: 50vw; background: var(--blue); top: -20%; left: -10%; animation-duration: 25s; }
+.s2 { width: 45vw; height: 45vw; background: var(--cyan); bottom: -10%; right: -5%; animation-duration: 22s; animation-direction: alternate-reverse; }
+.s3 { width: 40vw; height: 40vw; background: var(--purple); top: 20%; left: 30%; animation-duration: 28s; opacity: 0.15; }
+[data-theme=light] .shape { opacity: 0.15; mix-blend-mode: multiply; }
+@keyframes float { 0% { transform: translate(0, 0) scale(1) rotate(0deg); } 50% { transform: translate(10vw, -10vh) scale(1.2) rotate(180deg); } 100% { transform: translate(-10vw, 5vh) scale(0.9) rotate(360deg); } }
+
+/* Particle Animation Background */
+.particles { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; overflow: hidden;}
+.particle { position: absolute; background: var(--cyan); border-radius: 50%; opacity: 0.5; animation: rise linear infinite; }
+@keyframes rise { 0% { transform: translateY(100vh) scale(0); opacity: 0; } 50% { opacity: 0.8; } 100% { transform: translateY(-10vh) scale(1); opacity: 0; } }
+
+/* 3D Glass Cards */
+.glass-card { 
+  background: var(--panel); border: 1px solid var(--glass-border); border-radius: 24px; padding: 2.5rem; 
+  backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); box-shadow: var(--glass-shadow); 
+  position: relative; overflow: hidden; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.glass-card::before {
+  content: ""; position: absolute; top: var(--mouse-y, 0); left: var(--mouse-x, 0); transform: translate(-50%, -50%);
+  width: 600px; height: 600px; background: radial-gradient(circle closest-side, color-mix(in srgb, var(--cyan) 15%, transparent), transparent);
+  opacity: 0; transition: opacity 0.4s; pointer-events: none; z-index: 0;
+}
+.glass-card:hover { transform: translateY(-5px); border-color: color-mix(in srgb, var(--cyan) 50%, transparent); box-shadow: 0 20px 40px color-mix(in srgb, var(--cyan) 15%, transparent); }
+.glass-card:hover::before { opacity: 1; }
+.glass-card > * { position: relative; z-index: 1; }
+
+/* Hero Section */
+.hero { padding-block: 8rem 4rem; display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 4rem; align-items: center; min-height: 90vh; }
+.hello-text { color: var(--cyan); font-weight: 600; font-size: 1.2rem; margin-bottom: 0.5rem; letter-spacing: 1px; font-family: var(--b); }
+.hero-name { font: 800 clamp(3.5rem, 6.5vw, 6rem)/1.05 var(--d); letter-spacing: -0.02em; margin-bottom: 1.5rem; }
+.hero-name .solid-text { color: var(--ink); display: block; }
+.hero-name .outline-text { color: transparent; -webkit-text-stroke: 2px var(--cyan); display: block; margin-top: 0.2rem; }
+[data-theme=light] .hero-name .outline-text { -webkit-text-stroke: 2px var(--blue); }
+.hero-subtitle { color: var(--cyan); font-size: 1.15rem; font-weight: 500; margin-bottom: 2rem; display: flex; align-items: center; gap: 10px; }
+.hero-subtitle span { color: var(--mute); }
+
+.btns { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1rem;}
+.btn { padding: .9rem 2.2rem; border-radius: 14px; font: 600 1.05rem var(--b); transition: all .4s cubic-bezier(0.175, 0.885, 0.32, 1.275); border: 1px solid transparent; display: inline-flex; align-items: center; gap: 0.8rem; position: relative; overflow: hidden; }
+.btn.p { background: linear-gradient(135deg, var(--blue), var(--cyan)); color: #fff; box-shadow: 0 10px 25px -5px color-mix(in srgb, var(--cyan) 50%, transparent); border: none; }
+.btn.s { background: var(--soft); color: var(--ink); border-color: var(--glass-border); backdrop-filter: blur(12px); }
+.btn::after { content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%; background: linear-gradient(to right, transparent, rgba(255,255,255,0.3), transparent); transform: skewX(-20deg); transition: 0.6s; }
+.btn:hover::after { left: 150%; }
+.btn:hover { transform: translateY(-5px) scale(1.03); }
+.btn.p:hover { box-shadow: 0 15px 35px -5px color-mix(in srgb, var(--cyan) 60%, transparent); background: linear-gradient(135deg, var(--cyan), var(--teal)); }
+.btn.s:hover { border-color: var(--cyan); color: var(--cyan); background: var(--panel); box-shadow: 0 10px 25px color-mix(in srgb, var(--cyan) 20%, transparent); }
+
+/* Hero Image Wrapper */
+.hero-visual { position: relative; display: flex; justify-content: center; align-items: center; }
+.img-wrapper { position: relative; width: 420px; height: 420px; border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; background: linear-gradient(135deg, var(--cyan), var(--blue)); padding: 8px; animation: morph 12s ease-in-out infinite; box-shadow: 0 25px 60px rgba(0,0,0,0.4); transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+.img-wrapper:hover { transform: scale(1.05) rotate(5deg); box-shadow: 0 35px 70px color-mix(in srgb, var(--cyan) 40%, transparent); }
+.img-wrapper img { width: 100%; height: 100%; object-fit: cover; border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; animation: morph 12s ease-in-out infinite; border: 4px solid var(--bg); }
+
+/* Sections General */
+.sec { padding-block: 7rem; position: relative; }
+.sec-header { margin-bottom: 4rem; text-align: center; display: flex; flex-direction: column; align-items: center; }
+.sec-subtitle { color: var(--cyan); font-weight: 700; text-transform: uppercase; letter-spacing: 2px; font-size: 0.95rem; margin-bottom: 0.8rem; font-family: var(--d); }
+.sec-header h2 { font: 800 clamp(2.5rem, 4.5vw, 3.5rem)/1.1 var(--d); letter-spacing: -0.02em; margin-bottom: 1rem; color: var(--ink); }
+.sec-header h2 .highlight { color: var(--cyan); }
+.sec-header p { color: var(--mute); font-size: 1.15rem; max-width: 55rem; margin-top: 0.5rem; line-height: 1.6;}
+
+/* About Section */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+
+/* Research Interests / Exploring Section */
+.explore-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; }
+.explore-card { background: color-mix(in srgb, var(--bg) 40%, var(--panel)); border: 1px solid var(--glass-border); border-radius: 20px; padding: 2.5rem 2rem; position: relative; overflow: hidden; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); backdrop-filter: blur(12px); box-shadow: var(--glass-shadow); }
+.explore-card:hover { transform: translateY(-8px); border-color: var(--cyan); box-shadow: 0 15px 35px color-mix(in srgb, var(--cyan) 20%, transparent); }
+.explore-card .bg-number { position: absolute; top: 15px; right: 25px; font-size: 5.5rem; font-weight: 900; color: color-mix(in srgb, var(--ink) 5%, transparent); font-family: var(--d); line-height: 1; transition: color 0.4s ease, transform 0.4s ease; z-index: 0; pointer-events: none; }
+.explore-card:hover .bg-number { color: color-mix(in srgb, var(--cyan) 12%, transparent); transform: scale(1.1) rotate(5deg); }
+.explore-icon { width: 50px; height: 50px; background: color-mix(in srgb, var(--cyan) 15%, transparent); color: var(--cyan); border-radius: 14px; display: grid; place-items: center; font-size: 1.5rem; margin-bottom: 1.5rem; position: relative; z-index: 1; transition: transform 0.3s; }
+.explore-card:hover .explore-icon { transform: translateY(-5px); }
+.explore-card h3 { font-size: 1.4rem; font-weight: 800; color: var(--ink); margin-bottom: 1rem; font-family: var(--d); position: relative; z-index: 1; }
+.explore-card p { font-size: 1.05rem; color: var(--mute); line-height: 1.6; position: relative; z-index: 1; }
+
+/* Skills Section */
+.skill-category { margin-bottom: 3rem; background: var(--panel); border: 1px solid var(--glass-border); border-radius: 24px; padding: 2.5rem; backdrop-filter: blur(16px); box-shadow: var(--glass-shadow); transition: transform 0.4s; }
+.skill-category:hover { transform: translateY(-5px); border-color: color-mix(in srgb, var(--cyan) 30%, transparent); }
+.skill-category h3 { font: 700 1.5rem var(--d); margin-bottom: 2rem; color: var(--ink); display: flex; align-items: center; gap: 12px; }
+.skill-category h3 i { font-size: 1.8rem; padding: 12px; background: var(--soft); border-radius: 14px; }
+.sg { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1.2rem; }
+.sk-item { background: var(--bg); border: 1px solid var(--line); border-radius: 16px; padding: 1.2rem 1.5rem; display: flex; align-items: center; gap: 1.2rem; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+.sk-item:hover { transform: translateY(-5px) scale(1.03); border-color: var(--c); background: var(--soft); box-shadow: 0 12px 25px color-mix(in srgb, var(--c) 20%, transparent); }
+.sk-icon { width: 48px; height: 48px; border-radius: 14px; background: color-mix(in srgb, var(--c) 15%, transparent); color: var(--c); display: grid; place-items: center; font-size: 1.5rem; transition: 0.4s ease; border: 1px solid color-mix(in srgb, var(--c) 30%, transparent); }
+.sk-item:hover .sk-icon { background: var(--c); color: #fff; transform: rotate(12deg) scale(1.1); box-shadow: 0 0 15px var(--c); }
+.sk-info b { display: block; font: 700 1.1rem var(--b); color: var(--ink); }
+
+/* Work / Projects */
+.pill { display: inline-flex; align-items: center; gap: 0.6rem; padding: 0.5rem 1.2rem; border-radius: 999px; background: color-mix(in srgb, var(--cyan) 15%, transparent); color: var(--cyan); font-size: 0.9rem; font-weight: 700; margin-bottom: 1.5rem; border: 1px solid color-mix(in srgb, var(--cyan) 30%, transparent); text-transform: uppercase; letter-spacing: 1px; }
+.glass-card h3 { font: 800 1.6rem/1.3 var(--d); margin-bottom: 1rem; color: var(--ink); }
+.tags { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.5rem; }
+.tags span { padding: 0.4rem 1rem; border-radius: 8px; background: var(--soft); font-size: 0.85rem; font-weight: 600; border: 1px solid var(--glass-border); transition: all 0.3s ease; color: var(--mute); }
+.tags span:hover { background: var(--cyan); color: #fff; border-color: var(--cyan); transform: translateY(-3px); box-shadow: 0 6px 15px color-mix(in srgb, var(--cyan) 40%, transparent); }
+
+/* Interactive Course Cards with 2-Line Tab Navigation */
+.tabs-nav-container { display: flex; flex-direction: column; gap: 1rem; align-items: center; margin-bottom: 2.5rem; }
+.tabs-row { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+.tab-btn { padding: 0.9rem 2rem; border-radius: 14px; background: var(--panel); border: 1px solid var(--glass-border); color: var(--mute); font: 700 1.1rem var(--d); transition: all 0.3s ease; white-space: nowrap; box-shadow: var(--glass-shadow); backdrop-filter: blur(10px); }
+.tab-btn:hover { background: var(--soft); color: var(--cyan); border-color: var(--cyan); transform: translateY(-2px); }
+.tab-btn.active { background: linear-gradient(135deg, var(--blue), var(--cyan)); color: #fff; border-color: transparent; box-shadow: 0 10px 25px color-mix(in srgb, var(--cyan) 40%, transparent); transform: translateY(-3px); }
+.tab-content { display: none; animation: fadeIn 0.6s cubic-bezier(0.165, 0.84, 0.44, 1) forwards; }
+.tab-content.active { display: block; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(20px) scale(0.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
+
+.course-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 1.5rem; }
+.course-card { background: var(--panel); border: 1px solid var(--glass-border); border-radius: 20px; padding: 1.8rem; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); position: relative; overflow: hidden; box-shadow: var(--glass-shadow); backdrop-filter: blur(10px); }
+.course-card.theory { border-top: 5px solid var(--blue); }
+.course-card.sessional { border-top: 5px solid var(--teal); }
+.course-card:hover { transform: translateY(-6px); background: var(--soft); box-shadow: 0 15px 35px rgba(0,0,0,0.2); }
+.course-header { display: flex; flex-direction: column; gap: 0.5rem; }
+.course-header h4 { font: 800 1.3rem var(--d); color: var(--ink); display: flex; align-items: center; justify-content: space-between; margin: 0; }
+.course-header h4 span { font-size: 0.8rem; font-family: var(--b); padding: 0.3rem 0.8rem; border-radius: 8px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; }
+.course-card.theory h4 span { background: color-mix(in srgb, var(--blue) 15%, transparent); color: var(--blue); }
+.course-card.sessional h4 span { background: color-mix(in srgb, var(--teal) 15%, transparent); color: var(--teal); }
+.course-header p { color: var(--mute); font-size: 1.05rem; font-family: var(--b); display: flex; justify-content: space-between; align-items: center; font-weight: 600; margin: 0; }
+.c-credits { font-weight: 700; color: var(--ink); background: var(--bg); padding: 0.3rem 0.6rem; border-radius: 6px; border: 1px solid var(--line); display: inline-flex; align-items: center; gap: 4px; }
+
+/* Expanding Syllabus Section */
+.syllabus-btn { width: 100%; text-align: center; margin-top: 1.2rem; padding: 0.8rem; background: var(--bg); border: 1px solid var(--glass-border); border-radius: 12px; color: var(--cyan); font: 700 0.95rem var(--b); display: flex; align-items: center; justify-content: center; gap: 8px; transition: all 0.3s; }
+.syllabus-btn:hover { background: var(--cyan); color: #fff; }
+.syllabus-btn i { transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+.course-card.expanded .syllabus-btn { background: var(--cyan); color: #fff; border-color: var(--cyan); }
+.course-card.expanded .syllabus-btn i { transform: rotate(180deg); }
+.course-syllabus { max-height: 0; overflow: hidden; transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); opacity: 0; }
+.course-card.expanded .course-syllabus { max-height: 3000px; margin-top: 1.2rem; opacity: 1; border-top: 2px dashed var(--line); padding-top: 1.5rem; }
+.course-syllabus p { font-size: 0.95rem; color: var(--mute); line-height: 1.6; margin-bottom: 0.8rem; text-align: justify; }
+.course-syllabus strong { color: var(--ink); font-family: var(--b); font-size: 1.05rem; font-weight: 700; margin-right: 5px; }
+
+/* Education Timeline */
+.timeline { position: relative; max-width: 900px; margin: 0 auto; }
+.timeline::before { content: ''; position: absolute; top: 0; left: 23px; height: 100%; width: 4px; background: linear-gradient(to bottom, var(--blue), var(--cyan), var(--teal)); border-radius: 4px; }
+.tl-item { position: relative; padding-left: 4.5rem; margin-bottom: 3.5rem; }
+.tl-dot { position: absolute; left: 11px; top: 5px; width: 28px; height: 28px; border-radius: 50%; background: var(--bg); border: 6px solid var(--cyan); transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); z-index: 2; box-shadow: 0 0 0 5px var(--bg); }
+.tl-item:hover .tl-dot { background: var(--cyan); border-color: var(--cyan); transform: scale(1.4); box-shadow: 0 0 25px var(--cyan); }
+.tl-date { font-weight: 700; color: var(--cyan); font-size: 1.05rem; margin-bottom: 0.8rem; display: inline-block; padding: 0.4rem 1.2rem; background: var(--panel); border: 1px solid var(--glass-border); border-radius: 999px; box-shadow: var(--glass-shadow); backdrop-filter: blur(8px); }
+.tl-content { background: var(--panel); padding: 2.5rem; border-radius: 20px; border: 1px solid var(--glass-border); box-shadow: var(--glass-shadow); backdrop-filter: blur(16px); transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+.tl-content:hover { transform: translateX(10px) scale(1.02); border-color: var(--cyan); box-shadow: 0 20px 40px color-mix(in srgb, var(--cyan) 20%, transparent); }
+.tl-content h3 { font: 800 1.5rem var(--d); display: flex; align-items: center; gap: 14px; margin-bottom: 0.6rem; color: var(--ink); }
+.tl-content h3 img { border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.15); width: 36px; height: 36px; }
+.tl-content p { color: var(--mute); font-size: 1.1rem; }
+
+/* Contact Grid */
+.c-card { background: var(--panel); border: 1px solid var(--glass-border); padding: 2.5rem; border-radius: 24px; display: flex; align-items: center; gap: 1.5rem; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); backdrop-filter: blur(16px); box-shadow: var(--glass-shadow); position: relative; overflow: hidden; }
+.c-icon { width: 75px; height: 75px; border-radius: 50%; background: var(--bg); display: grid; place-items: center; font-size: 2.2rem; color: var(--hover-color); transition: all 0.4s ease; z-index: 1; border: 1px solid var(--glass-border); }
+.c-card div { z-index: 1; }
+.c-card h4 { font: 800 1.3rem var(--d); color: var(--ink); margin-bottom: 0.3rem; }
+.c-card p { font-size: 1.05rem; color: var(--mute); font-weight: 500; }
+.c-card::before { content: ""; position: absolute; bottom: -50px; right: -50px; width: 200px; height: 200px; background: var(--hover-color); border-radius: 50%; opacity: 0; transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); z-index: 0; filter: blur(30px); }
+.c-card:hover { transform: translateY(-8px) scale(1.02); border-color: var(--hover-color); box-shadow: 0 15px 35px color-mix(in srgb, var(--hover-color) 30%, transparent); }
+.c-card:hover::before { transform: scale(3); opacity: 0.15; }
+.c-card:hover .c-icon { background: var(--hover-color); color: #fff; transform: scale(1.15) rotate(15deg); border-color: transparent; box-shadow: 0 10px 25px color-mix(in srgb, var(--hover-color) 50%, transparent); }
+
+.f { background: var(--panel); padding: 3.5rem; border-radius: 28px; border: 1px solid var(--glass-border); box-shadow: var(--glass-shadow); backdrop-filter: blur(20px); display: grid; gap: 1.5rem; transition: transform 0.4s; }
+.f:hover { transform: translateY(-5px); border-color: var(--cyan); }
+.f label { font-weight: 600; font-size: 1.05rem; margin-bottom: 0.4rem; display: block; color: var(--ink); }
+.f input, .f textarea { width: 100%; padding: 1.2rem; border-radius: 12px; border: 1px solid var(--line); background: var(--bg); color: var(--ink); font: inherit; transition: all 0.3s ease; font-size: 1.05rem; }
+.f input:focus, .f textarea:focus { border-color: var(--cyan); box-shadow: 0 0 0 4px color-mix(in srgb, var(--cyan) 20%, transparent); outline: none; background: var(--panel); }
+
+footer { border-top: 1px solid var(--glass-border); padding: 3rem 0; text-align: center; color: var(--mute); font-size: 1.05rem; backdrop-filter: blur(10px); font-weight: 500; }
+
+/* Scroll Reveal Utility */
+.reveal { opacity: 0; transform: translateY(50px); transition: all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1); }
+.reveal.active { opacity: 1; transform: translateY(0); }
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.2s; }
+.delay-3 { transition-delay: 0.3s; }
+
+@media(max-width: 900px) {
+  .hero { grid-template-columns: 1fr; text-align: center; gap: 3rem; padding-top: 2rem; }
+  .tag { margin: 0 auto 1.5rem auto; }
+  .btns { justify-content: center; }
+  .img-wrapper { width: 300px; height: 300px; margin: 0 auto; }
+  .grid-2 { grid-template-columns: 1fr; }
+  .bar { flex-wrap: wrap; }
+  nav { order: 3; width: 100%; padding-bottom: 0.5rem; justify-content: center; }
+  .timeline::before { left: 23px; }
+  .tl-item { padding-left: 4.5rem; }
+  .c-card { flex-direction: column; text-align: center; }
+  .tabs-nav { justify-content: flex-start; }
+}
+</style>
+</head>
+<body>
+
+<a class="sr" href="#main">Skip to content</a>
+<div id="pg"></div>
+
+<header>
+  <div class="w bar">
+    <a class="brand" href="#top">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="10" fill="url(#grad)"/><defs><linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="var(--blue)"/><stop offset="100%" stop-color="var(--cyan)"/></linearGradient></defs><path d="M3 17c4-12 7-12 10 0s6 12 10 0 4-6 6-3" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/></svg>
+      Rahat
+    </a>
+    <nav aria-label="Main">
+      <a href="#about">About</a>
+      <a href="#interests">Interests</a>
+      <a href="#skills">Skills</a>
+      <a href="#work">Research</a>
+      <a href="#courses">Courses</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button class="ic" id="th" aria-label="Switch colour theme"><i class="fa-solid fa-moon"></i></button>
+  </div>
+</header>
+
+<main id="main">
+  <!-- Ambient Background Blobs -->
+  <div class="bg-shapes">
+    <div class="shape s1"></div>
+    <div class="shape s2"></div>
+    <div class="shape s3"></div>
+    <div class="shape s4"></div>
+  </div>
+  
+  <div class="particles" id="particles"></div>
+
+  <!-- HERO SECTION -->
+  <section class="w hero" id="top">
+    <div class="hero-text reveal">
+      <p class="hello-text">Hello, I'm</p>
+      <h1 class="hero-name">
+        <span class="solid-text">Md. Mahdi</span>
+        <span class="solid-text">Hasan</span>
+        <span class="outline-text">Rahat</span>
+      </h1>
+      <p class="hero-subtitle">Electrical & Electronic Engineering Student <span>• RUET</span></p>
+      
+      <p class="lead">I am a 3rd year (even semester) EEE student. I am deeply interested in researching power systems, renewable energy, control system stability, and applying machine learning & deep learning within these domains.</p>
+      
+      <div class="btns">
+        <a class="btn p" href="#work"><i class="fa-solid fa-microchip"></i> View Research</a>
+        <a class="btn s" href="#contact"><i class="fa-regular fa-paper-plane"></i> Get in touch</a>
+      </div>
+    </div>
+    
+    <div class="hero-visual reveal delay-1">
+      <div class="img-wrapper glass-tilt">
+        <img src="profile.jpg" alt="Portrait of Md. Mahdi Hasan Rahat" onerror="this.src='https://ui-avatars.com/api/?name=Mahdi+Rahat&size=500&background=0891B2&color=fff'">
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <section class="sec" id="about">
+    <div class="w reveal">
+      <div class="sec-header">
+        <p class="sec-subtitle">About Me</p>
+        <h2>Bridging Hardware & Data</h2>
+        <p>Where physical electrical systems meet artificial intelligence.</p>
+      </div>
+      <div class="glass-card grid-2 glass-tilt">
+        <div style="display: flex; flex-direction: column; justify-content: center;">
+          <p style="color: var(--mute); margin-bottom: 1.2rem; font-size: 1.15rem; line-height: 1.8;">I am an Electrical & Electronic Engineering undergrad at Rajshahi University of Engineering & Technology (RUET), currently in the even semester of my 3rd year.</p>
+          <p style="color: var(--mute); font-size: 1.15rem; line-height: 1.8;">My core focus lies at the intersection of power systems stability and AI. I build physics-informed deep learning models to assess grid inertia risks, while simultaneously prototyping embedded microcontrollers for intelligent, solar-first energy management.</p>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr; gap: 1.5rem; align-content: center; background: var(--soft); padding: 2.5rem; border-radius: 20px; border: 1px solid var(--glass-border);">
+          <div style="border-left: 5px solid var(--blue); padding-left: 1.5rem; transition: transform 0.3s;" onmouseover="this.style.transform='translateX(10px)'" onmouseout="this.style.transform='translateX(0)'">
+            <b style="font: 800 2.5rem var(--d); color: var(--ink); display: block; line-height: 1.2;">3rd Year</b>
+            <span style="color: var(--mute); font-size: 1.05rem; font-weight: 600;">B.Sc. EEE at RUET (Even Semester)</span>
+          </div>
+          <div style="border-left: 5px solid var(--cyan); padding-left: 1.5rem; transition: transform 0.3s;" onmouseover="this.style.transform='translateX(10px)'" onmouseout="this.style.transform='translateX(0)'">
+            <b style="font: 800 2.5rem var(--d); color: var(--ink); display: block; line-height: 1.2;">3x</b>
+            <span style="color: var(--mute); font-size: 1.05rem; font-weight: 600;">Technical Scholar (1st, 2nd, 3rd year)</span>
+          </div>
+          <div style="border-left: 5px solid var(--cu); padding-left: 1.5rem; transition: transform 0.3s;" onmouseover="this.style.transform='translateX(10px)'" onmouseout="this.style.transform='translateX(0)'">
+            <b style="font: 800 2.5rem var(--d); color: var(--ink); display: block; line-height: 1.2;">5.00</b>
+            <span style="color: var(--mute); font-size: 1.05rem; font-weight: 600;">GPA in PSC, JSC, SSC & HSC</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESEARCH INTERESTS (Areas I'm Exploring) -->
+  <section class="sec" id="interests">
+    <div class="w reveal">
+      <div class="sec-header">
+        <p class="sec-subtitle">Research Interests</p>
+        <h2>Areas I'm <span class="highlight">exploring</span></h2>
+        <p>Exploring the intersection of electrical engineering, computational intelligence, and modern energy systems.</p>
+      </div>
+
+      <div class="explore-grid">
+        <!-- Card 1 -->
+        <div class="explore-card">
+          <div class="bg-number">01</div>
+          <div class="explore-icon"><i class="fa-solid fa-bolt"></i></div>
+          <h3>Power Systems</h3>
+          <p>Modern power-system analysis, stability, reliability, forecasting, and intelligent grid applications.</p>
+        </div>
+        <!-- Card 2 -->
+        <div class="explore-card">
+          <div class="bg-number">02</div>
+          <div class="explore-icon"><i class="fa-solid fa-brain"></i></div>
+          <h3>Machine Learning</h3>
+          <p>Applying machine learning algorithms to solve challenging engineering and energy-system problems.</p>
+        </div>
+        <!-- Card 3 -->
+        <div class="explore-card">
+          <div class="bg-number">03</div>
+          <div class="explore-icon"><i class="fa-solid fa-network-wired"></i></div>
+          <h3>Deep Learning</h3>
+          <p>CNN, recurrent neural networks, transformer-based models, and hybrid architectures for time-series forecasting.</p>
+        </div>
+        <!-- Card 4 -->
+        <div class="explore-card">
+          <div class="bg-number">04</div>
+          <div class="explore-icon"><i class="fa-solid fa-atom"></i></div>
+          <h3>Physics-Informed AI</h3>
+          <p>Integrating physical laws and domain knowledge into neural networks for robust, interpretable predictions.</p>
+        </div>
+        <!-- Card 5 -->
+        <div class="explore-card">
+          <div class="bg-number">05</div>
+          <div class="explore-icon"><i class="fa-solid fa-chart-line"></i></div>
+          <h3>Probabilistic Forecasting</h3>
+          <p>Developing uncertainty-aware models for energy forecasting to support reliable grid operation and risk assessment.</p>
+        </div>
+        <!-- Card 6 -->
+        <div class="explore-card">
+          <div class="bg-number">06</div>
+          <div class="explore-icon"><i class="fa-solid fa-sliders"></i></div>
+          <h3>Control Systems</h3>
+          <p>Designing advanced control strategies and automation systems for enhanced stability in modern electrical grids.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS SECTION -->
+  <section class="sec" id="skills">
+    <div class="w reveal">
+      <div class="sec-header">
+        <p class="sec-subtitle">Competencies</p>
+        <h2>Technical <span class="highlight">Arsenal</span></h2>
+        <p>Languages, software tools, and frameworks I utilize daily to build and simulate systems.</p>
+      </div>
+      
+      <div class="skill-category glass-tilt">
+        <h3><i class="fa-solid fa-code" style="color: var(--blue);"></i> Programming & Data</h3>
+        <div class="sg">
+          <div class="sk-item"><div class="sk-icon" style="--c: var(--blue);"><i class="fa-solid fa-c"></i></div><div class="sk-info"><b>C Programming</b></div></div>
+          <div class="sk-item"><div class="sk-icon" style="--c: var(--blue);"><i class="fa-brands fa-python"></i></div><div class="sk-info"><b>Python</b></div></div>
+          <div class="sk-item"><div class="sk-icon" style="--c: var(--blue);"><i class="fa-solid fa-square-root-variable"></i></div><div class="sk-info"><b>MATLAB</b></div></div>
+          <div class="sk-item"><div class="sk-icon" style="--c: var(--blue);"><i class="fa-solid fa-file-code"></i></div><div class="sk-info"><b>LaTeX</b></div></div>
+        </div>
+      </div>
+
+      <div class="skill-category glass-tilt" style="transition-delay: 0.1s;">
+        <h3><i class="fa-solid fa-microchip" style="color: var(--cu);"></i> CAD & Simulation</h3>
+        <div class="sg">
+          <div class="sk-item"><div class="sk-icon" style="--c: var(--cu);"><i class="fa-solid fa-cube"></i></div><div class="sk-info"><b>SolidWorks</b></div></div>
+          <div class="sk-item"><div class="sk-icon" style="--c: var(--cu);"><i class="fa-solid fa-wave-square"></i></div><div class="sk-info"><b>Multisim</b></div></div>
+          <div class="sk-item"><div class="sk-icon" style="--c: var(--cu);"><i class="fa-solid fa-microchip"></i></div><div class="sk-info"><b>ModelSim</b></div></div>
+          <div class="sk-item"><div class="sk-icon" style="--c: var(--cu);"><i class="fa-solid fa-layer-group"></i></div><div class="sk-info"><b>Microwind</b></div></div>
+          <div class="sk-item"><div class="sk-icon" style="--c: var(--cu);"><i class="fa-solid fa-chess-board"></i></div><div class="sk-info"><b>EagleCAD</b></div></div>
+          <div class="sk-item"><div class="sk-icon" style="--c: var(--cu);"><i class="fa-solid fa-shapes"></i></div><div class="sk-info"><b>Tinkercad</b></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORK & RESEARCH SECTION -->
+  <section class="sec" id="work">
+    <div class="w reveal">
+      <div class="sec-header">
+        <p class="sec-subtitle">Portfolio</p>
+        <h2>Research & <span class="highlight">Projects</span></h2>
+        <p>Investigating grid stability algorithms and developing smart hardware solutions.</p>
+      </div>
+      <div class="grid-2">
+        <article class="glass-card glass-tilt reveal delay-1">
+          <span class="pill"><i class="fa-solid fa-book-open"></i> Journal Ongoing</span>
+          <h3>Physics-Informed Probabilistic Forecasting and Risk Assessment of Grid Inertia</h3>
+          <p style="color: var(--mute); font-size: 1.1rem;">Forecasting power-system inertia with three parallel deep-learning branches fused together. The architecture incorporates physical constraints to ensure predictions remain grounded in real-world physics, outputting probabilities for rigorous risk assessment.</p>
+          <div class="tags">
+            <span>Deep Learning</span><span>Probabilistic Forecasting</span><span>Physics-Informed</span><span>CNN–BiLSTM–BiGRU</span>
+          </div>
+        </article>
+        
+        <article class="glass-card glass-tilt reveal delay-2">
+          <span class="pill" style="color: var(--teal); background: color-mix(in srgb, var(--teal) 15%, transparent); border-color: color-mix(in srgb, var(--teal) 30%, transparent);"><i class="fa-solid fa-microchip"></i> Hardware Project</span>
+          <h3>ESP32-Based Intelligent Hybrid Power Management System</h3>
+          <p style="color: var(--mute); font-size: 1.1rem;">Designed a smart power management solution featuring automatic, solar-priority source selection. Includes full remote monitoring capabilities via an ESP32 microcontroller, allowing real-time tracking of hybrid energy distribution from anywhere.</p>
+          <div class="tags">
+            <span>ESP32</span><span>Solar Priority</span><span>Source Selection</span><span>Remote Monitoring</span>
+          </div>
+        </article>
+      </div>
+
+      <!-- Supervisor Card -->
+      <div class="glass-card glass-tilt reveal delay-3" style="margin-top: 2rem; border-color: color-mix(in srgb, var(--cyan) 50%, transparent); background: linear-gradient(135deg, var(--panel), color-mix(in srgb, var(--cyan) 8%, transparent));">
+        <span class="pill" style="color: var(--cyan); background: color-mix(in srgb, var(--cyan) 15%, transparent); border-color: color-mix(in srgb, var(--cyan) 40%, transparent);"><i class="fa-solid fa-chalkboard-user"></i> Undergrad Supervisor</span>
+        <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem;">
+          <div>
+            <h3 style="margin-bottom: 0.4rem; font: 800 1.8rem var(--d);">Dr. Md. Rafiqul Islam Sheikh</h3>
+            <p style="color: var(--mute); font-size: 1.15rem; font-weight: 500;">Professor, Department of Electrical & Electronic Engineering, RUET.</p>
+          </div>
+          <div class="btns">
+             <a class="btn s" href="https://www.eee.ruet.ac.bd/mri.sheikh" target="_blank"><i class="fa-solid fa-globe" style="color: var(--blue);"></i> RUET Profile</a>
+             <a class="btn s" href="https://scholar.google.com/citations?user=B3ytAnUAAAAJ&hl=en" target="_blank"><i class="fa-brands fa-google" style="color: #EA4335;"></i> Google Scholar</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ACADEMIC COURSES SECTION WITH EXPANDABLE SYLLABUS CONTENT -->
+  <section class="sec" id="courses">
+    <div class="w reveal">
+      <div class="sec-header">
+        <p class="sec-subtitle">Curriculum</p>
+        <h2>Completed Academic <span class="highlight">Courses</span></h2>
+        <p>A comprehensive list of all Theory and Sessional courses completed. <br><strong>Click any card to explore the full syllabus content</strong> formatted exactly from the official RUET EEE syllabus.</p>
+      </div>
+
+      <div class="tabs-container">
+        
+        <!-- 2-Line Tab Navigation -->
+        <div class="tabs-nav-container">
+            <div class="tabs-row">
+                <button class="tab-btn active" data-target="sem1">1st Year Odd</button>
+                <button class="tab-btn" data-target="sem2">1st Year Even</button>
+                <button class="tab-btn" data-target="sem3">2nd Year Odd</button>
+            </div>
+            <div class="tabs-row">
+                <button class="tab-btn" data-target="sem4">2nd Year Even</button>
+                <button class="tab-btn" data-target="sem5">3rd Year Odd</button>
+            </div>
+        </div>
+
+        <!-- Tab Contents -->
+        <div class="tabs-content-wrapper">
+          
+          <!-- Semester 1 -->
+          <div class="tab-content active" id="sem1">
+            <div class="course-grid">
+              
+              <div class="course-card theory" onclick="this.classList.toggle('expanded')">
+                <div class="course-header">
+                  <h4>EEE 1101 <span>Theory</span></h4>
+                  <p>Electrical Circuits I <span class="c-credits">3.00 Cr <span class="hide-cite">[cite: 52]</span></span></p>
+                </div>
+                <button class="syllabus-btn">View Syllabus <i class="fa-solid fa-chevron-down"></i></button>
+                <div class="course-syllabus">
+                  <p><strong>Electrical Quantities and Circuit Variables:</strong> Charge, Current, Voltage, Power, Energy, Units of electrical quantities. <span class="hide-cite">[cite: 63]</span></p>
+                  <p><strong>Fundamentals of Circuit Modelling:</strong> Independent, Dependent, Ideal- and practical sources, Combining sources in series, Parallel, Active and passive circuit elements, Ohm's law, Node, Branch, Loop, and Kirchhoff's laws. <span class="hide-cite">[cite: 63]</span></p>
+                  <p><strong>AC Circuit Fundamentals:</strong> Sinusoidal waveforms, Average- and RMS values, Form factor, Peak factor, Response of resistor to sinusoidal signals. <span class="hide-cite">[cite: 63]</span></p>
+                  <p><strong>Energy Storage Circuit Elements:</strong> Characteristics of inductance and capacitance, Response of inductor and capacitor to sinusoidal signals. <span class="hide-cite">[cite: 63]</span></p>
+                  <p><strong>Phase Relationship and Phasor Representation:</strong> Phase relationship between a pair of signals, Voltage and current of inductor, Capacitor, and Resistor, Review of phasor algebra, Phasor representation of sinusoidal signals, Reactance, Susceptance, Impedance, and Admittance, Kirchhoff's laws in phasor domain, Phasor diagrams. <span class="hide-cite">[cite: 63]</span></p>
+                  <p><strong>Circuit Reduction Techniques:</strong> Combining impedance in Series, Parallel, Series parallel, Voltage, and current divider rules, Concept of circuit equivalence, Y-&Delta; transformation, Source transformation, Voltage regulation. <span class="hide-cite">[cite: 63]</span></p>
+                  <p><strong>Circuit Analysis Techniques:</strong> Solving ac and dc circuits using mesh current method, and node voltage method. <span class="hide-cite">[cite: 63]</span></p>
+                  <p><strong>Circuit Theorems:</strong> Tellegen's theorem, Superposition principle, Thevenin's theorem, Norton's theorem, Maximum power transfer theorem, Millman's theorem, Substitution theorem, and Reciprocity theorem. <span class="hide-cite">[cite: 63]</span></p>
+                  <p><strong>Powers in AC Circuit:</strong> Instantaneous power, Real, reactive, and complex power, Power factor, Conservation of AC power, Power factor correction, Maximum average power transfer theorem. <span class="hide-cite">[cite: 63]</span></p>
+                  <p><strong>Resonance Phenomena:</strong> Series, and parallel resonance, Quality factor, Selectivity, and Bandwidth of resonant circuits. <span class="hide-cite">[cite: 63]</span></p>
+                  <p><strong>Magnetic Circuits:</strong> Magnetic flux, and Flux density. Magnetic field, and Magnetic field intensity. Magnetomotive force and magnetizing force. Permeability, Reluctance, Electromagnet, Ampere's circuital law, Analysis of series, and series- parallel magnetic circuits. <span class="hide-cite">[cite: 63]</span></p>
+                </div>
+              </div>
+
+              <div class="course-card sessional" onclick="this.classList.toggle('expanded')">
+                <div class="course-header">
+                  <h4>EEE 1102 <span>Sessional</span></h4>
+                  <p>Electrical Circuits I Sessional <span class="c-credits">1.50 Cr <span class="hide-cite">[cite: 52]</span></span></p>
+                </div>
+                <button class="syllabus-btn">View Syllabus <i class="fa-solid fa-chevron-down"></i></button>
+                <div class="course-syllabus">
+                  <p>Sessional based on the theory of course EEE 1101. <span class="hide-cite">[cite: 63]</span></p>
+                </div>
+              </div>
+
+              <div class="course-card theory" onclick="this.classList.toggle('expanded')">
+                <div class="course-header">
+                  <h4>CSE 1111 <span>Theory</span></h4>
+                  <p>Computer Programming <span class="c-credits">3.00 Cr <span class="hide-cite">[cite: 54]</span></span></p>
+                </div>
+                <button class="syllabus-btn">View Syllabus <i class="fa-solid fa-chevron-down"></i></button>
+                <div class="course-syllabus">
+                  <p><strong>Concepts:</strong> Introduction to computers, Computer characteristics, Modes of operations, Type of programming language, Desirable program characteristics. Flowcharts and Algorithm. <span class="hide-cite">[cite: 64]</span></p>
+                  <p><strong>C Fundamentals:</strong> The C character cet, Identifiers and keywords, Data type, Constants, Variables, Declarations, Expressions, Statements and symbolic constants. <span class="hide-cite">[cite: 64]</span></p>
+                  <p><strong>Operators and Expression:</strong> Arithmetic operators, Unary operators, Relational operators, Assignment operators, Conditional operators. <span class="hide-cite">[cite: 64]</span></p>
+                  <p><strong>Data Input and Output:</strong> Preliminaries, Single character input and output, Other type of data input and output, String input and output, Interactive programming. <span class="hide-cite">[cite: 64]</span></p>
+                  <p><strong>Control Statements:</strong> Preliminaries, Branching, Looping, Nested control statement, Switch, Break and continue statement, The comma operator. <span class="hide-cite">[cite: 64]</span></p>
+                  <p><strong>Functions:</strong> Definition, Accessing a function, Function prototype, Passing arguments to a function, Recursion, Library function. <span class="hide-cite">[cite: 64]</span></p>
+                  <p><strong>Program Structure:</strong> Storage classes, Automatic variables, External (global) Variables, Static variables, Multifile programs. <span class="hide-cite">[cite: 64]</span></p>
+                  <p><strong>Array:</strong> Definition, Processing an array, Passing arrays to a function, Multidimensional arrays, Arrays and strings. <span class="hide-cite">[cite: 64]</span></p>
+                  <p><strong>Pointers:</strong> Fundamentals, Pointer declarations, Passing pointer to functions, Pointer and one-dimensional array, Dynamic memory allocation, Operation on pointer, Arrays of pointers, Passing function to other function. <span class="hide-cite">[cite: 64]</span></p>
+                  <p><strong>Structures and Unions:</strong> Defining a structure, Processing a structure, User-defined data types, Structure and pointer, Passing structures to functions, Self-referential structures, Union. <span class="hide-cite">[cite: 64]</span></p>
+                  <p><strong>Data Files:</strong> Opening and closing a data file, Creating a data file, Processing a data file, Unformatted data files. <span class="hide-cite">[cite: 64]</span></p>
+                  <p><strong>Basic Object-Oriented Programming:</strong> Introduction, Classes and objects, Features of object-oriented programming: Polymorphism, Function and operator overloading and inheritance. Tools: C++ or others. <span class="hide-cite">[cite: 64]</span></p>
+                </div>
+              </div>
+
+              <div class="course-card sessional" onclick="this.classList.toggle('expanded')">
+                <div class="course-header">
+                  <h4>CSE 1112 <span>Sessional</span></h4>
+                  <p>Computer Programming Sessional <span class="c-credits">1.50 Cr <span class="hide-cite">[cite: 54]</span></span></p>
+                </div>
+                <button class="syllabus-btn">View Syllabus <i class="fa-solid fa-chevron-down"></i></button>
+                <div class="course-syllabus">
+                  <p>Sessional based on the theory of course CSE 1111. <span class="hide-cite">[cite: 64]</span></p>
+                </div>
+              </div>
+
+              <div class="course-card theory" onclick="this.classList.toggle('expanded')">
+                <div class="course-header">
+                  <h4>Math 1101 <span>Theory</span></h4>
+                  <p>Engineering Mathematics I <span class="c-credits">3.00 Cr <span class="hide-cite">[cite: 54]</span></span></p>
+                </div>
+                <button class="syllabus-btn">View Syllabus <i class="fa-solid fa-chevron-down"></i></button>
+                <div class="course-syllabus">
+                  <p><strong>Differential Calculus:</strong> Review of differentiation of various types of functions, Rolle's theorem, Mean value theorem, Partial differentiation, Euler's theorem, Tangent, Normal and curvature, Determination of maximum and minimum values of functions and their application, Series: Simple series divergency and convergency of geometric series: Maclaurin and Taylor series, Taylor's and Maclaurin's theorems in finite and infinite forms, Divergency and convergency of series. <span class="hide-cite">[cite: 65]</span></p>
+                  <p><strong>Integral Calculus:</strong> Review of indefinite and definite integration of various types of functions, Revision of integration techniques: Integration by parts, by substitution and by partial fractions and others use of definite integration in summing series, Walli's formulae, Improper integrals, Beta function and gamma functions, Error function and their properties, Application of integration: Area under a plane curve and area of a region enclosed by two curves in Cartesian and polar coordinates, Volume and surface areas of solids of revolution. <span class="hide-cite">[cite: 65]</span></p>
+                  <p><strong>Ordinary Differential Equations:</strong> Ordinary differential equations: concept, order and role of conditions, First order linear equations with constant coefficients (emphasizing a complementary function/particular integral approach but making mention of integrating factors, Natural and forced response (including the case of resonance), Second order linear equations with constant coefficients, Characteristic polynomials, Mathematical and physical interpretation of solutions (time-constant etc). <span class="hide-cite">[cite: 65]</span></p>
+                </div>
+              </div>
+
+              <div class="course-card theory" onclick="this.classList.toggle('expanded')">
+                <div class="course-header">
+                  <h4>Phy 1111 <span>Theory</span></h4>
+                  <p>Physics <span class="c-credits">3.00 Cr <span class="hide-cite">[cite: 54]</span></span></p>
+                </div>
+                <button class="syllabus-btn">View Syllabus <i class="fa-solid fa-chevron-down"></i></button>
+                <div class="course-syllabus">
+                  <p><strong>Atomic Structure:</strong> Thompsons, Rutherford and Bohr's atomic model, Atomic arrangement in solid, Different types of bonds in solid-metallic, vander walls and ionic bond. <span class="hide-cite">[cite: 65]</span></p>
+                  <p><strong>Electronic Structure of Materials:</strong> Free electron theory, Metallic conduction, Energy bands, Brillouin zones, Temperature dependence of metallic conductivity. <span class="hide-cite">[cite: 65]</span></p>
+                  <p><strong>Semiconductors:</strong> Band theory, Intrinsic and extrinsic semiconductors, Fermi levels, Mobility and electrical conductivity, Carrier diffusion and life time. <span class="hide-cite">[cite: 65]</span></p>
+                  <p><strong>Magnetic Materials:</strong> Properties of dia-, para- and ferro-magnetism, Hysteresis loop, B-H curve, Energy losses in magnetic materials and their measurements, Soft and hard magnetic materials, Ferrites. <span class="hide-cite">[cite: 65]</span></p>
+                  <p><strong>Thermal Electricity:</strong> Thermocouple, Seebeck effect, Peltier and Thompson effect, Thermo-emf. <span class="hide-cite">[cite: 65]</span></p>
+                  <p><strong>Photoelectricity:</strong> Laws of photoemission and Einstein's equation, Photoelectric cell and its use. <span class="hide-cite">[cite: 65]</span></p>
+                  <p><strong>Sound:</strong> Simple harmonic motion, Wave equation, Principle of superposition, Beats, Dispersion, Phase and group velocities, Doppler's effect, Free and force vibrations. <span class="hide-cite">[cite: 66]</span></p>
+                  <p><strong>Physical Optics:</strong> Theories of light, Huygens's principle and construction, Interference of light: Young's double slit experiment, Fresnel bi-prism, Newton's ring, Interferometers, Diffraction of light: Fresnel and Fraunhofer diffraction, Diffraction by single and double slit diffraction gratings, Polarization, Production and analysis of polarized light, Optical activity, Optics of crystals. <span class="hide-cite">[cite: 66]</span></p>
+                </div>
+              </div>
+
+              <div class="course-card sessional" onclick="this.classList.toggle('expanded')">
+                <div class="course-header">
+                  <h4>Phy 1112 <span>Sessional</span></h4>
+                  <p>Physics Sessional <span class="c-credits">0.75 Cr <span class="hide-cite">[cite: 54]</span></span></p>
+                </div>
+                <button class="syllabus-btn">View Syllabus <i class="fa-solid fa-chevron-down"></i></button>
+                <div class="course-syllabus">
+                  <p>Sessional based on the theory of course Phy 1111. <span class="hide-cite">[cite: 66]</span></p>
+                </div>
+              </div>
+
+              <div class="course-card theory" onclick="this.classList.toggle('expanded')">
+                <div class="course-header">
+                  <h4>Hum 1111 <span>Theory</span></h4>
+                  <p>Technical English <span class="c-credits">3.00 Cr <span class="hide-cite">[cite: 54]</span></span></p>
+                </div>
+                <button class="syllabus-btn">View Syllabus <i class="fa-solid fa-chevron-down"></i></button>
+                <div class="course-syllabus">
+                  <p><strong>Grammar:</strong> Grammatical principles, Modals, Phrases and idioms, Prefixes and suffixes, Sentence structures, WH and Yes/No question, Conditional sentences. <span class="hide-cite">[cite: 66]</span></p>
+                  <p><strong>Vocabulary:</strong> Technical and scientific vocabulary, Defining terms. <span class="hide-cite">[cite: 66]</span></p>
+                  <p><strong>Spoken English:</strong> Introduction to phonetic symbols, Dialogue, Responding to particular situations, Extempore speech. <span class="hide-cite">[cite: 66]</span></p>
+                  <p><strong>Reading:</strong> Comprehension of technical and non-technical materials skimming, Scanning, Inferring and responding to context. <span class="hide-cite">[cite: 66]</span></p>
+                  <p><strong>Technical Writing:</strong> Paragraph/Essay writing on scientific and other themes, Report writing, Research paper writing, Library references. <span class="hide-cite">[cite: 66]</span></p>
+                  <p><strong>Professional Communication:</strong> Business letter, Job application, Memos, Quotations, Tender notice. <span class="hide-cite">[cite: 66]</span></p>
+                </div>
+              </div>
+
+              <div class="course-card sessional" onclick="this.classList.toggle('expanded')">
+                <div class="course-header">
+                  <h4>Hum 1112 <span>Sessional</span></h4>
+                  <p>Technical English Sessional <span class="c-credits">0.75 Cr <span class="hide-cite">[cite: 54]</span></span></p>
+                </div>
+                <button class="syllabus-btn">View Syllabus <i class="fa-solid fa-chevron-down"></i></button>
+                <div class="course-syllabus">
+                  <p>Sessional based on the theory of course Hum 1111. <span class="hide-cite">[cite: 66]</span></p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Semester 2 -->
+          <div class="tab-content" id="sem2">
+            <div class="course-grid">
+              
+              <div class="course-card theory" onclick="this.classList.toggle('expanded')">
+                <div class="course-header">
+                  <h4>EEE 1201 <span>Theory</span></h4>
+                  <p>Electrical Circuits II <span class="c-credits">3.00 Cr <span class="hide-cite">[cite: 52]</span></span></p>
+                </div>
+                <button class="syllabus-btn">View Syllabus <i class="fa-solid fa-chevron-down"></i></button>
+                <div class="course-syllabus">
+                  <p><strong>Analysis and Synthesis of Polyphase Balanced and Unbalanced Circuits:</strong> Introduction to poly-phase system, 3-0 power generation, Phase, Line, Neutral quantities and phase sequence. Balanced polyphase circuits analysis: Y-Y, Y-&Lambda;, &Delta;-&Delta;, and &Delta;-Y. 3-φ power measurement, Comparison of copper among phases, Unbalanced system, Phase sequence Effect, and Checking, Unbalanced polyphase circuits analysis: Y-Y, Y-&Delta; using Conventional Method and Millman's theorem, 3- power calculation and vector power factor. <span class="hide-cite">[cite: 66, 67]</span></p>
+                  <p><strong>First Order and Second Order Circuits:</strong> Transient and steady state analysis of first order and second order circuit using differential equation, Circle diagrams of series, parallel RL, RC, RLC, LC circuits. <span class="hide-cite">[cite: 67]</span></p>
+                  <p><strong>Conductively and Magnetically Coupled Circuits:</strong> Terminology, Conception of mutual coupling, Coefficients of coupling with associated self and mutual parameters, Mutual inductance in series and parallel branches, Polarity test, Conception of transferred impedance, Energy in a coupled circuit and ideal transformers, Primary unity-power-factor and partial resonance, Double tuned circuit analysis. <span class="hide-cite">[cite: 67]</span></p>
+                  <p><strong>Multiport Networks:</strong> Electrical network models one port elements, Impedance functions, Multi-port elements, Controlled sources, Matrix representations of multi-ports, Driving point impedances and network functions, Ladder and lattice networks, Passive versus active networks, Multi-stage modelling and design, Multi-port generalizations, Terminated multi-port networks, Network with controlled sources. <span class="hide-cite">[cite: 67]</span></p>
+                  <p><strong>Filters:</strong> Introduction to filter, Classification of filter, Key terms related to filter, Passive filter, Different types of filter prototype, Double tuned filter, Cross-over circuit, Constant k filter, m-derived filter, Conventional analog filters analysis and design. <span class="hide-cite">[cite: 67]</span></p>
+                  <p><strong>Scaling:</strong> Magnitude scaling, Frequency scaling, Magnitude and frequency scaling, Application of scaling concept in filter design. <span class="hide-cite">[cite: 67]</span></p>
+                  <p><strong>Modelling and Simulation with Simulation Tools.</strong> <span class="hide-cite">[cite: 67]</span></p>
+                </div>
+              </div>
+
+              <div class="course-card sessional" onclick="this.classList.toggle('expanded')">
+                <div class="course-header">
+                  <h4>EEE 1202 <span>Sessional</span></h4>
+                  <p>Electrical Circuits II Sessional <span class="c-credits">0.75 Cr <span class="hide-cite">[cite: 52]</span></span></p>
+                </div>
+                <button class="syllabus-btn">View Syllabus <i class="fa-solid fa-chevron-down"></i></button>
+                <div class="course-syllabus">
+                  <p>Sessional based on the theory of course EEE 1201. <span class="hide-cite">[cite: 67]</span></p>
+                </div>
+              </div>
+
+              <div class="course-card theory" onclick="this.classList.toggle('expanded')">
+                <div class="course-header">
+                  <h4>EEE 1203 <span>Theory</span></h4>
+                  <p>Electronics I <span class="c-credits">3.00 Cr <span class="hide-cite">[cite: 52]</span></span></p>
+                </div>
+                <button class="syllabus-btn">View Syllabus <i class="fa-solid fa-chevron-down"></i></button>
+                <div class="course-syllabus">
+                  <p><strong>Semiconductor Diodes:</strong> Overview on semiconductor diode, DC and AC equivalent circuits. <span class="hide-cite">[cite: 67]</span></p>
+                  <p><strong>Diode Applications:</strong> Load-line analysis, Series diode configurations, Parallel and series-parallel configurations, and/or gates, Half-wave rectification, Full-wave rectification, Clippers, Clampers, Zener diode voltage regulators, Voltage-multiplier circuits. <span class="hide-cite">[cite: 67]</span></p>
+                  <p><strong>Bipolar Junction Transistors:</strong> npn and pnp transistor construction and operation, Common-base configuration, Common-emitter configuration, Common-collector configuration, Limits of operation, Early effect, Transistor testing, Super beta transistor, Darlington pair. <span class="hide-cite">[cite: 67]</span></p>
+                  <p><strong>DC Biasing-BJTs:</strong> Operating point, Fixed-bias configuration, Emitter-bias configuration, Voltage divider bias configuration, Collector feedback configuration, Emitter-follower configuration, Common-base configuration, Miscellaneous bias configurations, design, operations, Multiple BJT networks, Current mirrors, Current source circuits, Transistor switching networks, Stability factors and bias stabilization. <span class="hide-cite">[cite: 68]</span></p>
+                  <p><strong>BJT AC Analysis:</strong> Amplification in the ac domain, BJT transistor modelling, the re transistor model, Common-emitter fixed-bias configuration, Voltage-divider bias, CE emitter-bias configuration, Emitter-follower configuration, Common-base configuration, Collector feedback configuration, Collector dc feedback configuration, Effect of RL and Rs, Determining the current gain, Two-port systems approach, Hybrid equivalent model, Hybrid-π model, Hybrid-T model, Variations of transistor parameters. <span class="hide-cite">[cite: 68]</span></p>
+                  <p><strong>Multistage Amplifiers:</strong> Cascaded systems, RC coupled BJT amplifiers, Differential amplifier circuit and feedback pair. <span class="hide-cite">[cite: 68]</span></p>
+                  <p><strong>Field-Effect Transistors:</strong> Construction and characteristics of JFETs, Transfer characteristics, Depletion-type MOSFET, Enhancement-type MOSFET, CMOS, VMOS and MESFETs. <span class="hide-cite">[cite: 68]</span></p>
+                  <p><strong>FET Biasing:</strong> Fixed-bias configuration, Self-bias configuration, Common-gate configuration, Voltage-divider biasing for JFETs, Depletion-type MOSFETS, Enhancement-type MOSFETs, Combination networks- analysis and design, Universal JFET bias curve. <span class="hide-cite">[cite: 68]</span></p>
+                  <p><strong>FET Amplifiers:</strong> JFET small-signal model, AC equivalent circuit: Fixed-bias configuration, Self-bias configuration, Voltage-divider configuration, Common-gate configuration, Source-follower configuration, Depletion-type MOSFET, Enhancement-type MOSFET, Drain-feedback configuration, MOSFET voltage-divider configuration, Design of FET small signal amplifiers, Effect of source and load impedance of amplifier parameters. <span class="hide-cite">[cite: 68]</span></p>
+                </div>
+              </div>
+
+              <div class="course-card sessional" onclick="this.classList.toggle('expanded')">
+                <div class="course-header">
+                  <h4>EEE 1204 <span>Sessional</span></h4>
+                  <p>Electronics I Sessional <span class="c-credits">1.50 Cr <span class="hide-cite">[cite: 52]</span></span></p>
+                </div>
+                <button class="syllabus-btn">View Syllabus <i class="fa-solid fa-chevron-down"></i></button>
+                <div class="course-syllabus">
+                  <p>Sessional based on the theory of course EEE 1203. <span class="hide-cite">[cite: 68]</span></p>
+                </div>
+              </div>
+
+              <div class="course-card theory" onclick="this.classList.toggle('expanded')">
+                <div class="course-header">
+                  <h4>EEE 1205 <span>Theory</span></h4>
+                  <p>Electrical Engineering Materials <span class="c-credits">3.00 Cr <span class="hide-cite">[cite: 52]</span></span></p>
+                </div>
+                <button class="syllabus-btn">View Syllabus <i class="fa-solid fa-chevron-down"></i></button>
+                <div class="course-syllabus">
+                  <p><strong>Conductivity of Metal:</strong> Introduction, Factors affecting the resistivity of electrical materials, Motion of an electron in an electric field, Equation of motion of an electron, Current carried by electrons, Cobility, Energy levels of a molecule, Emission of electrons from metals, Thermionic emission, field emission, Effect of temperature on electrical conductivity of metals, Electrical conducting materials, Thermal properties, Thermal conductivity of metals. <span class="hide-cite">[cite: 68, 69]</span></p>
+                  <p><strong>Conducting Materials:</strong> Materials for electric resistors- general electric properties, Material for brushes of electrical machines, Lamp filaments, Fuses and solder. <span class="hide-cite">[cite: 69]</span></p>
+                  <p><strong>Semiconductors:</strong> Classification of semiconductors: Intrinsic and extrinsic semiconductors, Fermi levels, Semiconductor conductivity, Temperature dependence, Carrier density and energy gap, Mobility and electrical conductivity, Carrier diffusion and lifetime, Trends in materials used in electrical equipment. <span class="hide-cite">[cite: 69]</span></p>
+                  <p><strong>Superconductive Materials:</strong> Zero resistance and Meissner effect, Type I, and II superconductors, and critical current density, BCS theory, Magnetic recording materials, Josephson theory. <span class="hide-cite">[cite: 69]</span></p>
+                  <p><strong>Dielectrics:</strong> Dielectric, Polarization under static fields, Electronic, Ionic, orientational, Interfacial, and dipolar polarizations, Behavior of dielectrics in alternating fields, Internal field, Clausius-Mossotti equation, Spontaneous polarization, Factors influencing dielectric strength and capacitor materials, Frequency dependence of dielectric constant, Complex dielectric constant, Dipolar relaxation and dielectric loss, Piezoelectricity, Ferroelectricity, Pyroelectricity. <span class="hide-cite">[cite: 69]</span></p>
+                  <p><strong>Insulating Materials:</strong> Inorganic and organic materials, Resins and varnishes, Liquid insulators (transformer oil), Gaseous insulators (air, SF6 and nitrogen) and ageing of insulators. <span class="hide-cite">[cite: 69]</span></p>
+                  <p><strong>Piezoelectric Materials:</strong> Introduction properties and application of Piezoelectric materials, Eletrostrictive materials, Ferromagnetic materials, Magnetostrictive materials, Shape memory alloys, Electro archeological fluids, Magneto archeological fluids, Smart hydrogels. <span class="hide-cite">[cite: 69]</span></p>
+                  <p><strong>Meta-materials:</strong> Fundamentals of meta-materials, Material parameter extraction, Effective medium theory, Resonant unit cell analysis, and unit cell coupling. <span class="hide-cite">[cite: 69]</span></p>
+                  <p><strong>Materials for Special Applications:</strong> Materials for solar cells, Fuel cells and battery, Materials for coatings for enhanced solar thermal energy collection and solar selective coatings, Cold mirror coatings, Heat mirror coatings, Antireflection coatings, and sintered alloys for breaker and switch contacts. <span class="hide-cite">[cite: 69]</span></p>
+                  <p><strong>Modern Techniques for Materials Studies:</strong> Optical microscopy, Electron microscopy, Photo electron spectroscopy, Atomic absorption spectroscopy, magnetic resonance, Nuclear magnetic resonance, Electron spin resonance and ferromagnetic resonance. <span class="hide-cite">[cite: 69]</span></p>
+                </div>
+              </div>
+
+              <div class="course-card theory" onclick="this.classList.toggle('expanded')">
+                <div class="course-header">
+                  <h4>Chem 1211 <span>Theory</span></h4>
+                  <p>Chemistry <span class="c-credits">3.00 Cr <span class="hide-cite">[cite: 54]</span></span></p>
+                </div>
+                <button class="syllabus-btn">View Syllabus <i class="fa-solid fa-chevron-down"></i></button>
+                <div class="course-syllabus">
+                  <p><strong>Chemical Bond:</strong> Ionic bond, Covalent bond, Co-ordination bond, Metallic bond, Hydrogen bond, Dipole bond, Vander Waal's forces, Hybridization, Resonance, Valence bond theory, Molecular orbital theory, Liner combination of atomic orbital method. <span class="hide-cite">[cite: 69, 70]</span></p>
+                  <p><strong>Thermo-Chemistry:</strong> Types of energy, Enthalpy of reaction, Heat of combustion, Heat of formation and heat of neutralization, Experimental determination of thermal changes during chemical reaction. <span class="hide-cite">[cite: 70]</span></p>
+                  <p><strong>Solution:</strong> Types of solution, Factors influencing the solubility of substance, Mechanism of dissolution, Solution of gases in liquids, Different units of concentration, Properties of dilute solution, Raoult's law-its application, Elevation of boiling point, Depression of freezing point and osmotic pressure. <span class="hide-cite">[cite: 70]</span></p>
+                  <p><strong>Conductivity of Electrolytic Solution:</strong> Type of conductors, Conductance, Specific conductance, Equivalent conductance, Mechanism of electrolytic conductance, Factors influencing conductivity, Arrhenius theory, Law of independent migration of ions and its applications, Determination of transport number, Kohl-Rausch's law, Ionization of water and concept of pH, Abnormal conductance. <span class="hide-cite">[cite: 70]</span></p>
+                  <p><strong>Electrochemistry:</strong> Electrochemical cell, Cell reaction, Cell potential, Cell representation, Measurement of emf of a cell, Relation between emf and free energy, Electrode potential, Electrochemical series, Nernst's equation, Different types of reference electrodes and pH measurement, Secondary cells or accumulators, Lead accumulator and alkaline accumulator. <span class="hide-cite">[cite: 70]</span></p>
+                  <p><strong>Chemical Kinetics:</strong> Reaction rate, Units of rate, Rate laws, Order of a reaction, Zero order reaction, Molecularity of a reaction, Pseudo-order reactions, Zero order reactions, First order reactions, Second order reactions, Third order reactions, Units of rate constant, Half-life of a reaction, How to determine the order of a reaction, Effect of temperature on reaction rate, Activation energy, Le-Chatelier's theorem and some of its important industrial applications. <span class="hide-cite">[cite: 70]</span></p>
+                  <p><strong>Acids and Bases:</strong> Arrhenius concept, Bronsted-Lowry concept, Strength of bronsted acids and bases, Lewis concept of acids and bases, Relative strength of acids, Calculation of Ka, Relative strength of bases, Calculation of Kb, Acid-base indicators, pH range of indicators, Choice of a suitable indicator, Theories of acid-base indicators, Problems involving acid base titration. <span class="hide-cite">[cite: 70]</span></p>
+                  <p><strong>Noble Gases:</strong> Introduction, Occurrence, Properties and uses of noble gases. <span class="hide-cite">[cite: 70]</span></p>
+                </div>
+              </div>
+
+              <div class="course-card sessional" onclick="this.classList.toggle('expanded')">
+                <div class="course-header">
+                  <h4>Chem 1212 <span>Sessional</span></h4>
+                  <p>Chemistry Sessional <span class="c-credits">0.75 Cr <span class="hide-cite">[cite: 54]</span></span></p>
+                </div>
+                <button class="syllabus-btn">View Syllabus <i class="fa-solid fa-chevron-down"></i></button>
+                <div class="course-syllabus">
+                  <p>Sessional based on the theory of course Chem 1211. <span class="hide-cite">[cite: 70]</span></p>
+                </div>
+              </div>
+
+              <div class="course-card theory" onclick="this.classList.toggle('expanded')">
+                <div class="course-header">
+                  <h4>Math 1201 <span>Theory</span></h4>
+                  <p>Engineering Mathematics II <span class="c-credits">3.00 Cr <span class="hide-cite">[cite: 54]</span></span></p>
+                </div>
+                <button class="syllabus-btn">View Syllabus <i class="fa-solid fa-chevron-down"></i></button>
+                <div class="course-syllabus">
+                  <p><strong>Vector Analysis:</strong> Review of vector algebra: Addition and subtraction of vectors, Scalar and vector product of two vectors and their geometrical interpretation, Triple products and multiple products, Linear dependents and independents of vectors, Vector calculus: Differentiation and integration of vectors together with elementary applications, Definition of line, Surface Volume integrals, Gradient of scalar function, Divergence and curl of vector functions, Various formulae: Green's theorem, Gauss's theorem, Stoke's theorem. <span class="hide-cite">[cite: 71]</span></p>
+                  <p><strong>Fourier Analysis:</strong> Real and complex form of fourier series, Finite transform, Fourier integral, Fourier transforms and their uses in solving boundary value problems of wave equations. <span class="hide-cite">[cite: 71]</span></p>
+                  <p><strong>Laplace Transforms:</strong> Definition Laplace transforms of some elementary functions, Sufficient conditions for existence of laplace transforms, Inverse laplace transforms, Laplace transforms of derivatives, Unit step function, Periodic function, Some special theorems on Laplace transforms, Partial fractions, Solutions of differential equations by Laplace transforms, Evaluation of improper integrals. <span class="hide-cite">[cite: 71]</span></p>
+                </div>
+              </div>
+
+              <div class="course-card sessional" onclick="this.classList.toggle('expanded')">
+                <div class="course-header">
+                  <h4>ME 1200 <span>Sessional</span></h4>
+                  <p>Engineering Drawing <span class="c-credits">0.75 Cr <span class="hide-cite">[cite: 54]</span></span></p>
+                </div>
+                <button class="syllabus-btn">View Syllabus <i class="fa-solid fa-chevron-down"></i></button>
+                <div class="course-syllabus">
+                  <p><strong>Introduction to Engineering Drawing:</strong> Principles of engineering graphics and their significance, Drawing Instruments and their use, Conventions in drawing, Lettering, Dimensioning rules, Geometrical construction. <span class="hide-cite">[cite: 71]</span></p>
+                  <p><strong>Curves Used in Engineering Practice and Their Constructions:</strong> Conic sections, Special curves, Cycloids, Epicycloids, Hypocycloids. <span class="hide-cite">[cite: 71]</span></p>
+                  <p><strong>Orthographic Projection:</strong> Principles of orthographic projections- conventions, First and third angle projections, Projections of points and lines inclined to both the planes. <span class="hide-cite">[cite: 71]</span></p>
+                  <p><strong>Projections of Planes and Solids:</strong> Projections of regular planes, Inclined to both planes, Projections of regular solids inclined to both planes. <span class="hide-cite">[cite: 71]</span></p>
+                  <p><strong>Development of Surfaces:</strong> Development of surfaces of right, Regular solids, Development of prisms, Cylinders, Pyramids, Cones and their parts. <span class="hide-cite">[cite: 71]</span></p>
+                  <p><strong>Isometric Projections:</strong> Principles of isometric projections-isometric, Scale-isometric, Views, Conventions-plane figures, Simple and compound solids. <span class="hide-cite">[cite: 71]</span></p>
+                  <p><strong>Transformation of Projections:</strong> Conversion of isometric views to orthographic views, Conversion of orthographic views to isometric projections, vice-versa, Machine drawings and technical sketching, Introduction to computer aided drawing. <span class="hide-cite">[cite: 71]</span></p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Semester 3 -->
+          <div class="tab-content" id="sem3">
+            <div class="course-grid">
+              
+              <div class="course-card theory" onclick="this.classList.toggle('expanded')">
+                <div class="course-header">
+                  <h4>EEE 2103 <span>Theory</span></h4>
+                  <p>Electronics II <span class="c-credits">3.00 Cr <span class="hide-cite">[cite: 52]</span></span></p>
+                </div>
+                <button class="syllabus-btn">View Syllabus <i class="fa-solid fa-chevron-down"></i></button>
+                <div class="course-syllabus">
+                  <p><strong>Power Amplifiers:</strong> Classes of power amplifier, Series-fed class A amplifier, Transformer-coupled class A amplifier, Class B amplifier operation, Class B amplifier circuits, Amplifier distortion, Power transistor heat sinking, Class C and class D amplifiers. <span class="hide-cite">[cite: 72]</span></p>
+                  <p><strong>BJT and JFET Frequency Response:</strong> Low-frequency analysis-Bode plot, Amplifier transfer function, Low-frequency response-BJT and FET amplifier, Miller effect capacitance, High-frequency response-BJT and FET amplifier, Frequency response of cascaded amplifiers. <span class="hide-cite">[cite: 72]</span></p>
+                  <p><strong>Operational Amplifier:</strong> Block diagram and circuit diagram of practical Op-Amp, Parameters and characteristics of Op-Amp, Differential and common-mode operation, and Multistage Op-Amp amplifier. <span class="hide-cite">[cite: 72]</span></p>
+                  <p><strong>Operational Amplifier Applications:</strong> Inverting amplifier, Non-inverting amplifier, Summing amplifier, Differentiator, Integrator, Voltage follower, Differential amplifier, Logarithmic amplifier, Exponential amplifier. <span class="hide-cite">[cite: 72]</span></p>
+                  <p><strong>Practical Operational Amplifier:</strong> Comparison of ideal and practical op-amp, Input offset voltage, Offset voltage compensation, Input bias current, Input offset current, error voltage, Noise, CMRR and their significance in practical circuit. <span class="hide-cite">[cite: 72]</span></p>
+                  <p><strong>Operational Amplifier with Feedback:</strong> Feedback concept and connection types, Improvement of amplifier characteristics by negative feedback, Practical feedback circuits, Feedback amplifier-phase and frequency considerations. <span class="hide-cite">[cite: 72]</span></p>
+                  <p><strong>Wave Shaping:</strong> Linear and non-linear wave shaping, Frequency response of waves shaping circuits, Non-linear function circuits, Negative resistance devices. <span class="hide-cite">[cite: 72]</span></p>
+                  <p><strong>The 555 Timer:</strong> Functional block diagram, Monostable, Astable multivibrator. Phase-lock loop, Voltage-controlled oscillators. <span class="hide-cite">[cite: 72]</span></p>
+                  <p><strong>Oscillator Circuits:</strong> Oscillator operation, Phase-shift oscillator, Wien bridge oscillator. Tuned oscillator circuits- Hartley oscillator, Colpitts oscillator, Crystal oscillator. <span class="hide-cite">[cite: 72]</span></p>
+                  <p><strong>Active Filter:</strong> Active filter with Op-Amp, Butterworth filter, Butterworth design using Sallen-Key circuit. <span class="hide-cite">[cite: 72]</span></p>
+                </div>
+              </div>
+
+              <div class="course-card sessional" onclick="this.classList.toggle('expanded')">
+                <div class="course-header">
+                  <h4>EEE 2104 <span>Sessional</span></h4>
+                  <p>Electronics II Sessional <span class="c-credits">1.50 Cr <span class="hide-cite">[cite: 52]</span></span></p>
+                </div>
+                <button class="syllabus-btn">View Syllabus <i class="fa-solid fa-chevron-down"></i></button>
+                <div class="course-syllabus">
+                  <p>Sessional based on the theory of course EEE 2103. <span class="hide-cite">[cite: 72]</span></p>
+                </div>
+              </div>
+
+              <div class="course-card theory" onclick="this.classList.toggle('expanded')">
+                <div class="course-header">
+                  <h4>EEE 2107 <span>Theory</span></h4>
+                  <p>Electromagnetic Fields and Waves <span class="c-credits">3.00 Cr <span class="hide-cite">[cite: 52]</span></span></p>
+                </div>
+                <button class="syllabus-btn">View Syllabus <i class="fa-solid fa-chevron-down"></i></button>
+                <div class="course-syllabus">
+                  <p><strong>Review of vectors and coordinate systems.</strong> <span class="hide-cite">[cite: 73]</span></p>
+                  <p><strong>Static Electric Field:</strong> Coulomb's law and electric field, Gauss' law and Divergence of electric flux density, Work, Potential, Potential gradient and Energy in electrostatic field, Current and current density, Conductor, Dielectrics, Boundary conditions, Capacitance, Laplace's and Poisson's equations. <span class="hide-cite">[cite: 73]</span></p>
+                  <p><strong>Steady State Magnetic Field:</strong> Steady magnetic field, Biot-Savart law, Ampere's law, Curl of H, Stoke's theorem, Magnetic boundary conditions, Magnetic material and boundary conditions, Magnetic flux density, Vector magnetic potential, Inductance. <span class="hide-cite">[cite: 73]</span></p>
+                  <p><strong>Time Varying Fields:</strong> Faraday's law, Displacement current density, Maxwell's equations in differential and integral form, Retarded potential. <span class="hide-cite">[cite: 73]</span></p>
+                  <p><strong>Plane Wave Propagation:</strong> Plane wave in free space, Perfect dielectric, Lossy dielectrics, Good conductors, Loss tangent and skin effect, Poynting theorem, Power density, Polarization of plane wave, Wave propagation in periodic structures and photonic bandgaps. <span class="hide-cite">[cite: 73]</span></p>
+                  <p><strong>Reflection:</strong> Reflection from perfect conductors, Reflection from perfect dielectrics. <span class="hide-cite">[cite: 73]</span></p>
+                  <p><strong>Introduction to Radiating Systems.</strong> <span class="hide-cite">[cite: 73]</span></p>
+                  <p><strong>Waveguides:</strong> General formulation, Modes of propagation and losses in parallel plate, Rectangular and circular waveguides. <span class="hide-cite">[cite: 73]</span></p>
+                </div>
+              </div>
+
+              <div class="course-card theory" onclick="this.classList.toggle('expanded')">
+                <div class="course-header">
+                  <h4>EEE 2113 <span>Theory</span></h4>
+                  <p>Digital Electronics I <span class="c-credits">3.00 Cr <span class="hide-cite">[cite: 52]</span></span></p>
+                </div>
+                <button class="syllabus-btn">View Syllabus <i class="fa-solid fa-chevron-down"></i></button>
+                <div class="course-syllabus">
+                  <p><strong>Introduction to number systems and codes.</strong> <span class="hide-cite">[cite: 73]</span></p>
+                  <p><strong>Analysis and Synthesis of Digital Logic Circuits:</strong> Boolean algebra, De Morgan's law, logic gates and truth tables, Combinational logic design, Minterms and sum-of-products, Maxterms and product of sums, Don't care terms, Cost of implementation, Minimization of combinational logic, Algebraic logic Reduction, Karnaugh Map implicants, Prime implicants, Essential prime implicants. Multi-level logic functions Multiplexer, Demultiplexer, Encoder, Decoder, Adder and subtractor. Reduced dimension maps - map-entered variables; Quine-Mccluskey logic reduction prime implicant table, Mixed logic. <span class="hide-cite">[cite: 73]</span></p>
+                  <p><strong>Introduction to Verilog hardware description language programming and structural and behavioral design of digital systems using Verilog HDL, Verilog timing analysis and test bench.</strong> <span class="hide-cite">[cite: 73]</span></p>
+                  <p><strong>Hazards in Asynchronous Sequential Circuits:</strong> Static, Dynamic and essential hazards. <span class="hide-cite">[cite: 73]</span></p>
+                  <p><strong>MOSFET Digital Circuits:</strong> NMOS inverter, CMOS inverter, CMOS logic circuits, Clocked CMOS logic circuits, Transmission gates, Sequential logic circuits, BJT digital circuits: ECL, TTL, STTL, BICMOS, Memories: classifications and architecture, RAM memory cells, Read only memory. <span class="hide-cite">[cite: 73, 74]</span></p>
+                  <p><strong>Modular Combinational Circuit Design:</strong> Pass transistor, Pass gates, Multiplexer, Demultiplexer and their implementation in CMOS, Decoder, Encoder, Comparators, Binary arithmetic elements and ALU design. <span class="hide-cite">[cite: 74]</span></p>
+                  <p><strong>Programmable Logic Devices:</strong> Logic arrays, Field programmable logic arrays and Programmable read only memory. <span class="hide-cite">[cite: 74]</span></p>
+                  <p><strong>Sequential Logic Circuit Design:</strong> Different types of latches, Flip-flops and their design using ASM approach, Timing analysis, and Power optimization of sequential circuits. <span class="hide-cite">[cite: 74]</span></p>
+                  <p><strong>Modular Sequential Logic Circuit Design:</strong> Shift registers, Counters and their applications, Asynchronous and synchronous sequential circuits. <span class="hide-cite">[cite: 74]</span></p>
+                  <p><strong>Finite State Machines Design:</strong> Architecture; Mealy and Moore state machines; Logic synthesis- state diagram, State table, State reduction, State assignment, Next-state and output functions; State machine diagram; Metastability- setup and hold implementation of simple FSM using field programmable logic device. <span class="hide-cite">[cite: 74]</span></p>
+                  <p><strong>ADC/DAC:</strong> Functional block diagram, Flash ADC, Successive approximation ADC, Dual slope ADC, Sigma Delta ADC, Binary weighted DAC, R-2R ladder, Error: Quantization error, DNL, INL. <span class="hide-cite">[cite: 74]</span></p>
+                </div>
+              </div>
+
+              <div class="course-card sessional" onclick="this.classList.toggle('expanded')">
+                <div class="course-header">
+                  <h4>EEE 2114 <span>Sessional</span></h4>
+                  <p>Digital Electronics I Sessional <span class="c-credits">0.75 Cr <span class="hide-cite">[cite: 52]</span></span></p>
+                </div>
+                <button class="syllabus-btn">View Syllabus <i class="fa-solid fa-chevron-down"></i></button>
+                <div class="course-syllabus">
+                  <p>Sessional based on the theory of course EEE 2113. <span class="hide-cite">[cite: 74]</span></p>
+                </div>
+              </div>
+
+              <div class="course-card theory" onclick="this.classList.toggle('expanded')">
+                <div class="course-header">
+                  <h4>Math 2101 <span>Theory</span></h4>
+                  <p>Engineering Mathematics III <span class="c-credits">3.00 Cr <span class="hide-cite">[cite: 54]</span></span></p>
+                </div>
+                <button class="syllabus-btn">View Syllabus <i class="fa-solid fa-chevron-down"></i></button>
+                <div class="course-syllabus">
+                  <p><strong>Partial Differential Equations:</strong> Lagrange's method of solving PDE of order one, Integral surfaces passing through a given curve, Non linear PDE of order one (Complete, Particular, Singular and General integrals); Standard forms f(p,q)=0, z=px+qy+f(p,q), f(p,q,z)=0, f1(x,p)=f2(y,q), Charpit's method, Second order PDE; Its nomenclature and classifications to canonical (standard) parabolic, elliptic, hyperbolic, Solution by separations of variables, Linear PDE with constants coefficients. <span class="hide-cite">[cite: 74]</span></p>
+                  <p><strong>Matrix:</strong> Definition of matrix, Different types of matrix, Algebra of matrix, Adjoin and inverse of a matrix, Elementary transformations of matrix, Matrix polynomials, Calay-Hamilton theory with uses of rank and nullity, Normal and canonical forms, Solution of linear equations, Eigenvalues and eigenvectors. <span class="hide-cite">[cite: 74]</span></p>
+                  <p><strong>Series Solution:</strong> Solution of differential equations in series by the method of Frobenius, Bessel's functions, Legendre's polynomials and their properties. <span class="hide-cite">[cite: 74]</span></p>
+                  <p><strong>3D Geometry:</strong> Co-ordinate geometry of three dimension- System of co-ordinates, Concept of rectangular- cylindrical and spherical co-ordinate system, Transformation of co-ordinates, Distance between two points, Section formula, Projection, Direction cosines, Equations of planes and lines. <span class="hide-cite">[cite: 74, 75]</span></p>
+                  <p><strong>Application to electrical systems.</strong> <span class="hide-cite">[cite: 75]</span></p>
+                </div>
+              </div>
+
+              <div class="course-card theory" onclick="this.classList.toggle('expanded')">
+                <div class="course-header">
+                  <h4>ME 2101 <span>Theory</span></h4>
+                  <p>Basic Mechanical Engineering <span class="c-credits">3.00 Cr <span class="hide-cite">[cite: 54]</span></span></p>
+                </div>
+                <button class="syllabus-btn">View Syllabus <i class="fa-solid fa-chevron-down"></i></button>
+                <div class="course-syllabus">
+                  <p><strong>Study of fuels.</strong> Steam generation units with accessories and mountings. Study of steam generation and steam turbines. Introduction to internal combustion engines and their cycles, Study of SI and CI engines and gas turbines with their accessories. <span class="hide-cite">[cite: 75]</span></p>
+                  <p><strong>Refrigeration and air conditioning</strong> with their application, Refrigeration equipment: compressors, condensers and evaporators. <span class="hide-cite">[cite: 75]</span></p>
+                  <p><strong>Type of fluid machinery,</strong> Study of impulse and reaction turbine, Pelton wheel and Kaplan turbine, Study of centrifugal and axial flow machines, Pumps, fans, blowers and compressors, Study of reciprocation pumps. <span class="hide-cite">[cite: 75]</span></p>
+                </div>
+              </div>
+
+              <div class="course-card sessional" onclick="this.classList.toggle('expanded')">
+                <div class="course-header">
+                  <h4>ME 2102 <span>Sessional</span></h4>
+                  <p>Basic Mechanical Engineering Sessional <span class="c-credits">0.75 Cr <span class="hide-cite">[cite: 54]</span></span></p>
+                </div>
+                <button class="syllabus-btn">View Syllabus <i class="fa-solid fa-chevron-down"></i></button>
+                <div class="course-syllabus">
+                  <p>Sessional based on the theory of course ME 2101. <span class="hide-cite">[cite: 75]</span></p>
+                </div>
+              </div>
+
+              <div class="course-card sessional" onclick="this.classList.toggle('expanded')">
+                <div class="course-header">
+                  <h4>Hum 2100 <span>Sessional</span></h4>
+                  <p>History of Independence <span class="c-credits">0.75 Cr <span class="hide-cite">[cite: 54]</span></span></p>
+                </div>
+                <button class="syllabus-btn">View Syllabus <i class="fa-solid fa-chevron-down"></i></button>
+                <div class="course-syllabus">
+                  <p><strong>Description of the Country and Its People:</strong> Geographical features and their influence, Ethnic composition, Language, Cultural syncretism and religious tolerance, Distinctive identity of Bangladesh in the context of undivided Bengal. <span class="hide-cite">[cite: 75]</span></p>
+                  <p><strong>Proposal for Undivided Sovereign Bengal and the Partition of the Sub Continent, 1947:</strong> Rise of communalism under the colonial rule, Lahore resolution of 1940, The proposal of Suhrawardy and Sarat Bose for sovereign undivided Bengal, consequences, The creation of Pakistan in 1947. <span class="hide-cite">[cite: 75]</span></p>
+                  <p><strong>Pakistan: Structure of the State and Disparity:</strong> Central and provincial structure, Influence of military and civil bureaucracy, Economic, social and cultural disparity. <span class="hide-cite">[cite: 75]</span></p>
+                  <p><strong>Language Movement and Quest for Bengali Identity:</strong> Rule by Muslim League and struggle for democratic politics, Foundation of Awami League, 1949, The Language Movement: context and phases, United front of Haque - Bhasani - Suhrawardy: elections of 1954, consequences. <span class="hide-cite">[cite: 75]</span></p>
+                  <p><strong>Military Rule: The Regimes of Ayub Khan and Yahya Khan (1958- 1971):</strong> Definition of military rule and its characteristics, Ayub Khan's rise to power and characteristics of his rule (Political repression, Basic Democracy, Islamisation), Fall of Ayub Khan and Yahya Khan's rule, Abolition of one unit, Universal suffrage, The legal framework order. <span class="hide-cite">[cite: 75, 76]</span></p>
+                  <p><strong>Rise of Nationalism and the Movement for Self-determination:</strong> Resistance against cultural aggression and resurgence of Bengali culture, The Six Point Movement of Sheikh Mujibur Rahman, Reaction, importance and significance of the Six Point Movement, The Agartala Case of 1968. <span class="hide-cite">[cite: 76]</span></p>
+                  <p><strong>The Mass Upsurge of 1969 and the 11 Point Movement:</strong> Background, Programme, significance and consequences, Election of 1970, Non-cooperation movement and The declaration of independence by Bangabandhu, Election result and center's refusal to comply, The non-co-operation movement, the 7th March address of Bangabandhu, Operation Searchlight, Declaration of independence by Bangabandhu and his arrest. <span class="hide-cite">[cite: 76]</span></p>
+                  <p><strong>The War of Liberation 1971:</strong> Genocide, repression of women and refugees, Formation of Bangladesh Government and proclamation of independence, The spontaneous early resistance and subsequent organized resistance (Mukti Fouz, Mukti Bahini, Guerillas and The frontal warfare), Publicity campaign in the war of liberation (Shadhin Bangla Betar Kendra, the campaigns abroad and formation of public opinion), Contribution of students, women and the masses (People's war), The role of super powers (USSR, USA and China) and the Muslim states in the liberation war, The anti-liberation activities of the occupation army, the Peace Committee, Al- Badar, Al-Shams, Razakars, Pro-Pakistan political parties and Pakistani collaborators, killing of the intellectuals, Trial of Bangabandhu in jail in Pakistan and reaction of the world community, Role of the Bengalis living abroad and the civil societies of different countries of the world, The contribution of India in the Liberation War, Formation of joint Indo- Bangladesh command and the victory, The overall contribution of Bangabandhu and his leadership in the independence struggle. <span class="hide-cite">[cite: 76]</span></p>
+                  <p><strong>The Bangabandhu Regime 1972-1975:</strong> Homecoming, Making of the constitution, Reconstruction of the war-ravaged country, foreign policy, The murder of Bangabandhu and his family and the ideological turn-around. <span class="hide-cite">[cite: 76]</span></p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Semester 4 -->
+          <div class="tab-content" id="sem4">
+            <div class="course-grid">
+              
+              <div class="course-card theory" onclick="this.classList.toggle('expanded')">
+                <div class="course-header">
+                  <h4>Math 2201 <span>Theory</span></h4>
+                  <p>Engineering Mathematics IV <span class="c-credits">3.00 Cr <span class="hide-cite">[cite: 54]</span></span></p>
+                </div>
+                <button class="syllabus-btn">View Syllabus <i class="fa-solid fa-chevron-down"></i></button>
+                <div class="course-syllabus">
+                  <p><strong>Complex Variable:</strong> Complex number system, General functions of a complex variable, Limits and continuity of a function of complex variable and related theorems; Complex differentiation and the Cauchy-Riemann equations, Mapping by elementary functions, Line Integral of a complex function, Cauchy's Integral theorem, Cauchy's Integral formula, Liouville's theorem, Taylor's theorem and Laurent's theorem, Singular points, Residue, Cauchy's Residue theorem, Evaluation of residues, Contour integration, Conformal mapping. <span class="hide-cite">[cite: 76]</span></p>
+                  <p><strong>Statistical Analysis:</strong> Review of Mean, Median, Mode and other measures of central tendency, Standard deviation and other measures of dispersion, Moments skewness and kurtosis, Elementary probability theory, discrete probability distributions (Binomial and Poisson) and continuous probability distributions (Normal distribution), Characteristics of distributions. <span class="hide-cite">[cite: 76, 77]</span></p>
+                  <p><strong>Statistical Properties of Random Variable, Vector and Matrix:</strong> PDF, CDF and MGF of continuous and discrete random variables, Marginal PDF and joint PDF of continuous and discrete random variables, Joint PDF of two independent random variables, Joint PDF of two dependent random variables, Calculation of PDF of a vector from the PDF of its element, Calculation of PDF of a matrix from the PDF of its element, Hypothesis testing and regression analysis. <span class="hide-cite">[cite: 77]</span></p>
+                </div>
+              </div>
+
+              <div class="course-card theory" onclick="this.classList.toggle('expanded')">
+                <div class="course-header">
+                  <h4>EEE 2201 <span>Theory</span></h4>
+                  <p>Signals and Linear Systems <span class="c-credits">3.00 Cr <span class="hide-cite">[cite: 53]</span></span></p>
+                </div>
+                <button class="syllabus-btn">View Syllabus <i class="fa-solid fa-chevron-down"></i></button>
+                <div class="course-syllabus">
+                  <p><strong>Signals:</strong> Continuous and discrete time signals and their properties, Important Signal Types, Operations and models, Laplace, Fourier and Z transforms and their properties, Signal reconstructions, Sampling, Nyquist sampling theorem, Aliasing effect, Fourier series representation of periodic signals. <span class="hide-cite">[cite: 77]</span></p>
+                  <p><strong>System:</strong> Classifications of system; Representation of systems by block diagrams, Differential and difference equations for LTI systems, State space representations, Modelling of electrical, Mechanical and electromechanical system, Transfer functions of LTI systems, Pole-zero diagram and system stability, Realization of system using direct, cascade, and parallel forms, Interconnection of system, Basic feedback system; Inverse system, Distortion less system. <span class="hide-cite">[cite: 77]</span></p>
+                  <p><strong>System Response:</strong> Time domain and frequency domain analysis of LTI systems, First order and second order system response, First order and second order switching circuit, Application of first order and second order system, Zero-input and zero-state response, Transient and steady-state response, Forced and natural response, Impulse and step responses, Convolution integral and application to LTI system, Network Synthesis, Parseval's theorem. <span class="hide-cite">[cite: 77]</span></p>
+                  <p><strong>Filters:</strong> Analog filter design, Low pass prototypes of modern filters, Filter design and transformations; Realisation of passive filter circuits; Active filters, First and second order transfer functions, Realization of higher order filters. <span class="hide-cite">[cite: 77]</span></p>
+                  <p><strong>Application of Signals and Systems in Communication:</strong> Signal and carrier, Bandwidth and spectrum allocation, Modulation schemes: AM, FM and PM, Modulators and demodulators, Time division and Frequency division multiplexing. <span class="hide-cite">[cite: 77]</span></p>
+                </div>
+              </div>
+
+              <div class="course-card theory" onclick="this.classList.toggle('expanded')">
+                <div class="course-header">
+                  <h4>EEE 2207 <span>Theory</span></h4>
+                  <p>Electrical Machines I <span class="c-credits">3.00 Cr <span class="hide-cite">[cite: 53]</span></span></p>
+                </div>
+                <button class="syllabus-btn">View Syllabus <i class="fa-solid fa-chevron-down"></i></button>
+                <div class="course-syllabus">
+                  <p><strong>Principles of electromechanical energy conversion,</strong> Energy stored in magnetic field, Field energy in a magnetically linear system, Singly excited system and doubly excited system, Basic concepts of rotating electric machines, Basic structure of rotating electric machines, MMF space wave of a concentrated coils, MMF of distributed single-phase winding, MMF of three-phase windings, Rotating magnetic field, Generated voltage in AC machines, Machine torque, Torque in machines with cylindrical air gaps, Reluctance torque or alignment. <span class="hide-cite">[cite: 78]</span></p>
+                  <p><strong>Transformers:</strong> Ideal transformer- transformation ratio, No-load and load vector diagrams; Actual transformer- equivalent circuit, Regulation, Short circuit and open circuit tests. Transformer-tests. Auto-transformer and instrument transformers: (C.T. and P.T.), Parallel operation of transformers. Three phase transformer and its connections; Vector group of three phase transformers; Phase conversion. <span class="hide-cite">[cite: 78]</span></p>
+                  <p><strong>DC Generators:</strong> Overview of construction, Types of DC machines, Equivalent circuit of a DC generator, Lap and wave windings, EMF equation of DC machines, Armature reaction in DC generators, Commutation and methods of improving commutation, Characteristics of DC generators, Separately excited DC generator, Voltage build-up in self-excited generator, DC shunt, DC series and DC compound generator characteristics, Parallel operation of DC generators. <span class="hide-cite">[cite: 78]</span></p>
+                  <p><strong>DC Motors:</strong> Working principle of motor, Back E.M.F., Types of DC motors, Equivalent circuit of a DC motor, Torque of DC motor, Armature reaction in DC motor, Characteristics of a DC shunt motor, Characteristics of a DC series motor, Characteristics of a DC compound motor, Speed of a DC machine, Speed control of DC motors, Starting of DC motors, Three point and four point starter with its advantages and disadvantages, Losses in DC machines, Power flow diagram, Testing of DC machines, Swinburne's test, Hopkinson's test, Break and pulley test, Regenerative test. <span class="hide-cite">[cite: 78]</span></p>
+                  <p><strong>Special Machines:</strong> Brushless DC motor, Welding machine, Universal motor, Stepper motor, Reluctance motor, Repulsion motor, Servomotor, Hysteresis motor, Permanent magnet motor and Electrostatic motor. <span class="hide-cite">[cite: 78]</span></p>
+                </div>
+              </div>
+
+              <div class="course-card sessional" onclick="this.classList.toggle('expanded')">
+                <div class="course-header">
+                  <h4>EEE 2208 <span>Sessional</span></h4>
+                  <p>Electrical Machines I Sessional <span class="c-credits">1.50 Cr <span class="hide-cite">[cite: 53]</span></span></p>
+                </div>
+                <button class="syllabus-btn">View Syllabus <i class="fa-solid fa-chevron-down"></i></button>
+                <div class="course-syllabus">
+                  <p>Sessional based on the theory of course EEE 2207. <span class="hide-cite">[cite: 78]</span></p>
+                </div>
+              </div>
+
+              <div class="course-card theory" onclick="this.classList.toggle('expanded')">
+                <div class="course-header">
+                  <h4>EEE 2211 <span>Theory</span></h4>
+                  <p>Measurements & Instrumentation <span class="c-credits">3.00 Cr <span class="hide-cite">[cite: 53]</span></span></p>
+                </div>
+                <button class="syllabus-btn">View Syllabus <i class="fa-solid fa-chevron-down"></i></button>
+                <div class="course-syllabus">
+                  <p><strong>Introduction:</strong> Methods of measurement, Statistical method applied to field of measurement and error analysis and calibration. <span class="hide-cite">[cite: 79]</span></p>
+                  <p><strong>Static Performance of Instruments:</strong> Errors and uncertainties, Propagation of uncertainties, Accuracy, Precision, Resolution, Linearity, etc., Impedance loading and matching, Selection of instruments. <span class="hide-cite">[cite: 79]</span></p>
+                  <p><strong>Transducer Elements:</strong> Introduction of transducer and its classification, Construction, Operating principle and characteristics of resistive, inductive and capacitive transducer, Strain gauge, Light dependent transducer, LVDT, Piezoelectric transducer, Hall effect transducer, Thermistor, Thermocouple, RTD, and Proximity transducer, Microphone, and Camera. <span class="hide-cite">[cite: 79]</span></p>
+                  <p><strong>Resistance, Inductance and Capacitance Measurements:</strong> Different methods of measuring high, medium and low resistances, Methods of measuring self and mutual inductance and capacitance measurement, A.C. and DC bridge methods, Measurement of insulation and earth resistances, Localization of cable fault. <span class="hide-cite">[cite: 79]</span></p>
+                  <p><strong>Electrical Measuring Instruments:</strong> Classification of measuring instruments, Ammeter, Voltmeter, Wattmeter, AVO meter, Energy meter, Clamp-on ammeter, Speed, Frequency and Phase difference measurements, Flux meter, Illumination measurement. <span class="hide-cite">[cite: 79]</span></p>
+                  <p><strong>Electronic Measuring Instruments:</strong> Microphone, Camera, Q-meter, CRO and Microwave network analyzer. Wireless sensor and Instrument interfaces with MCUs: Arduino, STM32 and ARM processors, Sensor networks and wireless power. <span class="hide-cite">[cite: 79]</span></p>
+                </div>
+              </div>
+
+              <div class="course-card sessional" onclick="this.classList.toggle('expanded')">
+                <div class="course-header">
+                  <h4>EEE 2212 <span>Sessional</span></h4>
+                  <p>Measurements & Inst. Sessional <span class="c-credits">1.50 Cr <span class="hide-cite">[cite: 53]</span></span></p>
+                </div>
+                <button class="syllabus-btn">View Syllabus <i class="fa-solid fa-chevron-down"></i></button>
+                <div class="course-syllabus">
+                  <p>Sessional based on the theory of course EEE 2211. <span class="hide-cite">[cite: 79]</span></p>
+                </div>
+              </div>
+
+              <div class="course-card theory" onclick="this.classList.toggle('expanded')">
+                <div class="course-header">
+                  <h4>EEE 2213 <span>Theory</span></h4>
+                  <p>VLSI Circuits and Design I <span class="c-credits">3.00 Cr <span class="hide-cite">[cite: 53]</span></span></p>
+                </div>
+                <button class="syllabus-btn">View Syllabus <i class="fa-solid fa-chevron-down"></i></button>
+                <div class="course-syllabus">
+                  <p><strong>IC Technology and Basic Electrical Properties of MOS and BICMOS:</strong> Moore's law, IC(s) and Scale integration, Glue logic, Evolution of VLSI, VLSI design flow, Basic MOSFET structures, Switch level modelling of PMOS and NMOS, Compound gates using CMOS, Transmission logic, Tristates, CMOS memory elements, NMOS inverter, Pull-Up to Pull-Down ratio of NMOS inverter, BiCMOS inverters, Latch up in CMOS circuits. <span class="hide-cite">[cite: 79]</span></p>
+                  <p><strong>Fabrication and Design Processes of CMOS:</strong> CMOS fabrication, Twin-Tub fabrication process of CMOS, Lambda and Micron based design rules and layout, Basics of stick diagrams, Stick diagram rules, Design of complementary gates using stick diagrams. <span class="hide-cite">[cite: 79]</span></p>
+                  <p><strong>Circuit Concepts and Scaling of MOS Circuits:</strong> Sheet resistance, Inverter resistance calculation, Area capacitance Calculation of MOS structures, Silicides, Scaling models and scaling factors, Limits of miniaturization. <span class="hide-cite">[cite: 80]</span></p>
+                  <p><strong>Sub-System Design Processes, Layout and Computational Elements:</strong> Problems in large VLSI systems, Basic bus architectures, 4-bit shifter design, 4x4 barrel shifter, Regularity, Design of an ALU sub-system, Adder, Serial parallel multipliers, System timing considerations, Dynamic register element, 4-bit dynamic shift registers, Three transistors and one transistor memory cells, Dynamic and static flip-flops. <span class="hide-cite">[cite: 80]</span></p>
+                  <p><strong>Practical Aspects of Design Tools and Testability of CMOS Design:</strong> Transition delay calculations of inverters, CIF code and geometric CIF primitives, CAD tools, Design rule checkers (DRC), Layout versus schematic (LVS), Rule of ten in VLSI systems test costs, Sensitized path-based testing, SAO and SA1 faults in combinational logic testing. <span class="hide-cite">[cite: 80]</span></p>
+                  <p><strong>Ultra-Fast VLSI Circuits and Systems:</strong> Introduction to GaAs technology, Superior electron mobility of GaAs technology, GaAs devices, FinFET and FDSOI technology. <span class="hide-cite">[cite: 80]</span></p>
+                  <p><strong>Introduction and Application of VHDL:</strong> VHDL background and basic concepts, Structural specifications of hardware design organization and parameterization, VHDL design of finite state machines (FSM). <span class="hide-cite">[cite: 80]</span></p>
+                  <p><strong>FPGA:</strong> Internal architecture, Programming languages, FPGA programming using a standard language, and applications. <span class="hide-cite">[cite: 80]</span></p>
+                </div>
+              </div>
+
+              <div class="course-card sessional" onclick="this.classList.toggle('expanded')">
+                <div class="course-header">
+                  <h4>EEE 2214 <span>Sessional</span></h4>
+                  <p>VLSI Circuits and Design I Sessional <span class="c-credits">1.50 Cr <span class="hide-cite">[cite: 53]</span></span></p>
+                </div>
+                <button class="syllabus-btn">View Syllabus <i class="fa-solid fa-chevron-down"></i></button>
+                <div class="course-syllabus">
+                  <p>Sessional based on the theory of course EEE 2213. <span class="hide-cite">[cite: 80]</span></p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Semester 5 -->
+          <div class="tab-content" id="sem5">
+            <div class="course-grid">
+              
+              <div class="course-card sessional" onclick="this.classList.toggle('expanded')">
+                <div class="course-header">
+                  <h4>EEE 3100 <span>Sessional</span></h4>
+                  <p>Electronics Shop Practice <span class="c-credits">1.50 Cr <span class="hide-cite">[cite: 53]</span></span></p>
+                </div>
+                <button class="syllabus-btn">View Syllabus <i class="fa-solid fa-chevron-down"></i></button>
+                <div class="course-syllabus">
+                  <p><strong>Aspects of Electronic Design:</strong> Component selection, Tolerances, Passive component characteristics, Analogue interface to digital circuits, Noise analysis and modeling, EMC, Grounding strategies and signal integrity, Heat conduction, and Dissipation. <span class="hide-cite">[cite: 80]</span></p>
+                  <p><strong>Advanced Components and Sensors:</strong> Introduction to microcontroller modules e.g. Arduino, Different types of sensors interfacing (IR, PIR, ultrasonic sensor, sonar sensor, humidity sensor etc.), Robotics and automation, Introduction to IoT and its application, ARM processor e.g. STM 32, and different IoT modules, ESP 32, ADC and DAC modules etc. <span class="hide-cite">[cite: 80]</span></p>
+                  <p><strong>PCB Design:</strong> Construction and manufacturing of printed circuit boards (PCB), CAD tools, Schematics, Simulation, Layout, Soldering, Testing and troubleshooting, Enclosures and mechanical construction. <span class="hide-cite">[cite: 80]</span></p>
+                  <p><strong>Project:</strong> Students are required to design and build an electrical & electronic engineering project either individually or in a small group. This process will include producing specifications, detailed design, prototype production and testing. The Design will be presented orally and documented in formal technical reports considering scheduling, marketing, and business plans. <span class="hide-cite">[cite: 80, 81]</span></p>
+                </div>
+              </div>
+
+              <div class="course-card theory" onclick="this.classList.toggle('expanded')">
+                <div class="course-header">
+                  <h4>EEE 3105 <span>Theory</span></h4>
+                  <p>Control System Engineering <span class="c-credits">3.00 Cr <span class="hide-cite">[cite: 53]</span></span></p>
+                </div>
+                <button class="syllabus-btn">View Syllabus <i class="fa-solid fa-chevron-down"></i></button>
+                <div class="course-syllabus">
+                  <p><strong>Introductory Concepts:</strong> Control goals, Classification of dynamic systems, Basic components of a control system, Open-loop and closed-loop system, Effects of feedback on overall gain, Stability and external disturbance or noise. <span class="hide-cite">[cite: 81]</span></p>
+                  <p><strong>System Modeling:</strong> Transfer function, Signal flow graph, State-space, Transfer function to state variable and state variable to transfer function, Mathematical modeling of mechanical, electrical and electro-mechanical systems. <span class="hide-cite">[cite: 81]</span></p>
+                  <p><strong>Time Domain Analysis:</strong> Transient and steady-state responses of first, second and multi-order dynamic systems, Steady state errors, Control of transient response, Basic control actions and their effects on transient and steady state responses. <span class="hide-cite">[cite: 81]</span></p>
+                  <p><strong>Stability:</strong> Basics of stability, Classification, Routh-Hurwitz criterion, Root-locus. <span class="hide-cite">[cite: 81]</span></p>
+                  <p><strong>Frequency Domain Analysis:</strong> Introduction of frequency response, Bode diagram, Polar plot, Nyquist Plot, and Nichols chart. <span class="hide-cite">[cite: 81]</span></p>
+                  <p><strong>Design of Controller:</strong> Introduction of controller, Controllability, Observability, PID controller design, PID tuning, Lead-lag compensator, Pole placement technique, and Introduction to non-linear control system. <span class="hide-cite">[cite: 81]</span></p>
+                </div>
+              </div>
+
+              <div class="course-card sessional" onclick="this.classList.toggle('expanded')">
+                <div class="course-header">
+                  <h4>EEE 3106 <span>Sessional</span></h4>
+                  <p>Control System Engineering Sessional <span class="c-credits">0.75 Cr <span class="hide-cite">[cite: 53]</span></span></p>
+                </div>
+                <button class="syllabus-btn">View Syllabus <i class="fa-solid fa-chevron-down"></i></button>
+                <div class="course-syllabus">
+                  <p>Sessional based on the theory of course EEE 3105. <span class="hide-cite">[cite: 81]</span></p>
+                </div>
+              </div>
+
+              <div class="course-card theory" onclick="this.classList.toggle('expanded')">
+                <div class="course-header">
+                  <h4>EEE 3107 <span>Theory</span></h4>
+                  <p>Electrical Machines II <span class="c-credits">3.00 Cr <span class="hide-cite">[cite: 53]</span></span></p>
+                </div>
+                <button class="syllabus-btn">View Syllabus <i class="fa-solid fa-chevron-down"></i></button>
+                <div class="course-syllabus">
+                  <p><strong>Three Phase Induction Motor:</strong> Operation, Types - Wound rotor, Squirrel case, Double case, Rotating magnetic field, Equivalent circuit, Phasor diagrams, Torque-speed characteristics, Effect of changing rotor resistance and reactance on torque-speed curves, Motor torque and developed rotor power, No-load test, Blocked rotor test, Starting, Braking, Cogging, variable frequency drives (VFD), Speed control, Derating, Different starter circuits, Linear induction motor, Induction generator, and Study of name plate ratings. <span class="hide-cite">[cite: 81]</span></p>
+                  <p><strong>Single Phase Induction Motor:</strong> Theory of operation, Equivalent circuit, and starting techniques, No load test and blocked rotor tests. <span class="hide-cite">[cite: 81]</span></p>
+                  <p><strong>Synchronous Generator:</strong> Windings, Excitation systems, Equivalent circuit, Phasor diagrams at different power factor loads, Effect of load changes with constant power factor and the respective phasor diagrams, Effect of field excitation changes and the respective phasor diagrams, Factors affecting voltage regulation, Synchronous impedance, Synchronous impedance methods of predicting voltage regulation and its limitations, and Synchronous generator ratings, Parallel operation: Necessary conditions, Synchronizing, Circulating current, Vector diagram, Frequency-power and voltage-reactive power characteristics of a synchronous generator, Frequency-versus power diagram (or house diagram) for a synchronous generator in parallel with an infinite bus, Effect of increasing the governor's set points on the house diagram and the phasor diagram, Operation of generators in parallel with other generators of the same size and the respective house diagrams, Shifting power sharing without affecting system frequency, Shifting system frequency without affecting power sharing, Shifting reactive power sharing without affecting terminal voltage, and Shifting terminal voltage without affecting reactive power sharing. <span class="hide-cite">[cite: 82]</span></p>
+                  <p><strong>Synchronous Motor:</strong> Operation, Starting methods, Effect of load changes and the respective phasor diagrams, Effect of field current changes and the respective phasor diagrams, V-curves, Torque-speed characteristics curves, and study of name plate ratings. <span class="hide-cite">[cite: 82]</span></p>
+                </div>
+              </div>
+
+              <div class="course-card sessional" onclick="this.classList.toggle('expanded')">
+                <div class="course-header">
+                  <h4>EEE 3108 <span>Sessional</span></h4>
+                  <p>Electrical Machines II Sessional <span class="c-credits">1.50 Cr <span class="hide-cite">[cite: 53]</span></span></p>
+                </div>
+                <button class="syllabus-btn">View Syllabus <i class="fa-solid fa-chevron-down"></i></button>
+                <div class="course-syllabus">
+                  <p>Sessional based on the theory of course EEE 3107. <span class="hide-cite">[cite: 82]</span></p>
+                </div>
+              </div>
+
+              <div class="course-card theory" onclick="this.classList.toggle('expanded')">
+                <div class="course-header">
+                  <h4>EEE 3109 <span>Theory</span></h4>
+                  <p>Computational Methods in Engineering <span class="c-credits">3.00 Cr <span class="hide-cite">[cite: 53]</span></span></p>
+                </div>
+                <button class="syllabus-btn">View Syllabus <i class="fa-solid fa-chevron-down"></i></button>
+                <div class="course-syllabus">
+                  <p><strong>Introduction and Development:</strong> Numerical method, Mathematical modeling and engineering Problem solving, Difficulties of numerical modeling, Basic concepts of errors in numerical computation: Approximation and round-off errors, Truncation errors and the Taylor series, Error propagation. <span class="hide-cite">[cite: 82]</span></p>
+                  <p><strong>Roots of Non-linear Algebraic and Transcendental Equations:</strong> Bracketing method- Bisection method and false-position method; Open method- Fixed point iteration, the Newton-Raphson method, Secant method, Brent's method, Finding multiple roots, Systems of non-linear equations. Roots of polynomials: Muller's method and Baristow's Method. <span class="hide-cite">[cite: 82]</span></p>
+                  <p><strong>Numerical Solution of Systems of Linear Algebraic Equations:</strong> Matrix theory, Vectorization, Gauss elimination method, Jacobi methods, LU decomposition and matrix inversion and Gauss Seidel method, Ill conditioning, Pivoting, Error analysis. <span class="hide-cite">[cite: 82]</span></p>
+                  <p><strong>Interpolation, Approximation and Curve fitting:</strong> Least Square Regression, Polynomial, Spline interpolation, Double interpolation. <span class="hide-cite">[cite: 83]</span></p>
+                  <p><strong>Numerical Integration and Differentiation:</strong> Newton methods, Trapezoidal method, Simpson's methods, Romberg integration, Double integration, Boole's method. <span class="hide-cite">[cite: 83]</span></p>
+                  <p><strong>Numerical Solution of Ordinary Differential Equations:</strong> Euler's method and Runge-Kutta methods, Eigen value problems, System of ordinary differential equations. <span class="hide-cite">[cite: 83]</span></p>
+                  <p><strong>Numerical Solution of Partial Differential Equations:</strong> Finite difference (FD) methods, Numerical stability, Implicit FD method. <span class="hide-cite">[cite: 83]</span></p>
+                  <p><strong>Introduction to numerical optimization, Clustering and pattern recognition.</strong> Application of the numerical techniques in solving Electrical and Electronic Engineering problems. <span class="hide-cite">[cite: 83]</span></p>
+                </div>
+              </div>
+
+              <div class="course-card sessional" onclick="this.classList.toggle('expanded')">
+                <div class="course-header">
+                  <h4>EEE 3110 <span>Sessional</span></h4>
+                  <p>Computational Methods Sessional <span class="c-credits">1.50 Cr <span class="hide-cite">[cite: 53]</span></span></p>
+                </div>
+                <button class="syllabus-btn">View Syllabus <i class="fa-solid fa-chevron-down"></i></button>
+                <div class="course-syllabus">
+                  <p>Sessional based on the theory of course EEE 3109. <span class="hide-cite">[cite: 83]</span></p>
+                </div>
+              </div>
+
+              <div class="course-card theory" onclick="this.classList.toggle('expanded')">
+                <div class="course-header">
+                  <h4>EEE 3111 <span>Theory</span></h4>
+                  <p>Power Systems I <span class="c-credits">3.00 Cr <span class="hide-cite">[cite: 53]</span></span></p>
+                </div>
+                <button class="syllabus-btn">View Syllabus <i class="fa-solid fa-chevron-down"></i></button>
+                <div class="course-syllabus">
+                  <p><strong>Overview:</strong> Power generation, Transmission, and Distribution, Single line diagram of power systems. <span class="hide-cite">[cite: 83]</span></p>
+                  <p><strong>Electrical Design of Overhead Transmission Lines:</strong> Types of conductors, Resistance, Definition of inductance, Inductance due to internal Flux, Inductance, and Capacitance Calculation, Double Circuit transmission lines, Bundled conductor lines, Charging current, Reactive power of line Parameters, Image conductors, Effect of earth on the line capacitance, Interference between power and communication lines. <span class="hide-cite">[cite: 83]</span></p>
+                  <p><strong>Characteristics and Performance of Overhead Transmission Lines:</strong> Representation of lines, The short and medium-length transmission line, Phasors diagrams, The long transmission line, Equivalent circuits, Characteristic impedance, Surge impedance, Experimental determination of ABCD constants, Power circle diagram, Transmission efficiency and voltage regulation, Ferranti effect, Transmission line transients, Travelling waves, reflections. <span class="hide-cite">[cite: 83]</span></p>
+                  <p><strong>Reactive Compensation of Transmission Lines:</strong> Methods of voltage control, Active and reactive power flow control in transmission lines. <span class="hide-cite">[cite: 83]</span></p>
+                  <p><strong>Mechanical Design and Characteristics of Overhead Transmission Lines:</strong> Types of insulators and their coordination, Electric stress string efficiency, Insulator testing, Corona formation, Calculation of the potential gradient, Disruptive, and visual critical voltage, Corona power loss, Factors affecting corona loss, Sag and tensions, Effect of temperature change, Catenary and parabolic methods, Effect of ice and wind, Effect of sag and tension on line design. <span class="hide-cite">[cite: 83, 84]</span></p>
+                  <p><strong>Power Cables:</strong> Construction of cable, Classification of cables, Insulation resistance, Dielectric stress, Capacitance of the cables, Charging current, KVAR due to capacitive current, Measurement of capacitance of a cable, Dielectric losses and heating, Skin effect, Proximity effect, Thermal breakdown, Testing of insulated cables, Kelvin's law, Economic conductor section, Limitations. <span class="hide-cite">[cite: 84]</span></p>
+                  <p><strong>Power Distribution:</strong> Calculation of voltage drop and power loss in different DC and AC distribution network configurations. <span class="hide-cite">[cite: 84]</span></p>
+                  <p><strong>EHV Transmission and HVDC Transmission Systems:</strong> Necessity of EHV transmission system, Types of DC links, Advantages of HVDC transmission systems, Power system harmonics, HVDC systems in Bangladesh. <span class="hide-cite">[cite: 84]</span></p>
+                </div>
+              </div>
+
+              <div class="course-card theory" onclick="this.classList.toggle('expanded')">
+                <div class="course-header">
+                  <h4>EEE 3117 <span>Theory</span></h4>
+                  <p>Communication Engineering I <span class="c-credits">3.00 Cr <span class="hide-cite">[cite: 53]</span></span></p>
+                </div>
+                <button class="syllabus-btn">View Syllabus <i class="fa-solid fa-chevron-down"></i></button>
+                <div class="course-syllabus">
+                  <p><strong>Overview of Communication Systems:</strong> Basic principles, Fundamental elements, Message sources, Input-output transducers, Transmission policies, Analog and digital communication systems, their advantages and disadvantages, Introduction to communication networks, Communication traffics, Telephone, Satellite communication, RADAR communication, Fiber optic communication, Cellular communication, Radio and TV broadcasting, Radio switching systems, Cognitive radio networks etc. <span class="hide-cite">[cite: 84]</span></p>
+                  <p><strong>Transmitter:</strong> Elements of transmitter and their functions, Transmission technologies, Concept of wireless transmission with antennas, Transmit diversity schemes, Channel state information at the transmitter, transmission delay. Digitization: Sampling and its classification, Sampling theorem, Nyquist criterion, Aliasing effect and its elimination, Quantizing, Quantization noise, Non-uniform quantization, Signal to quantization error ratio, Encoding, Line coding formats, Sample and hold circuit, Quantizer and encoder circuits, Modulation: Modulation and its principle, Importance of modulation, Definition, Graphical representation, Generation, Modulated signal's expression, Frequency spectrum and bandwidth requirements of AM, FM and PM, Design and fabrication of AM, FM and PM transmitter circuits. <span class="hide-cite">[cite: 84]</span></p>
+                  <p><strong>Transmission Media:</strong> Types of media and their properties, Principle of information transmission through wire, Coaxial cable, Waveguide, Optical fiber, Radio link etc., Channel and its classification, PDF, CDF and MGF of channel gain, Modeling of fading channels, Expressions of received signals, Propagation delay, Bandwidth, Channel capacity and its classification, Outage probability, Bit error rate, Symbol error rate and their calculations, Effects of noise, Fading, Interference and correlation on the transmission media, Noise: Sources of noise, Characteristics of various types of noise, Signal-to-noise ratio, Noise figure, Fading: Types of fading, Measures of fading channels, Interference: Types of interference and their mitigation techniques, Correlation: Types of correlation and their mitigation technologies, Digital link, Design of digital link. <span class="hide-cite">[cite: 84, 85]</span></p>
+                  <p><strong>Receiver:</strong> Receivers, Elements of receiver and their functions, Superheterodyne receiver, Design and fabrication of matched filter circuit and analog, Digital and correlator receiver circuits, Receiving antennas and channel state information at the receiver, Demodulation and Decoding: Principle of demodulation and decoding, Importance of demodulation, Demodulation and decoding of AM, FM and PM modulated signals, Design and fabrication of AM, FM and PM receiver circuits. <span class="hide-cite">[cite: 85]</span></p>
+                </div>
+              </div>
+
+              <div class="course-card sessional" onclick="this.classList.toggle('expanded')">
+                <div class="course-header">
+                  <h4>EEE 3118 <span>Sessional</span></h4>
+                  <p>Communication Engineering I Sessional <span class="c-credits">0.75 Cr <span class="hide-cite">[cite: 53]</span></span></p>
+                </div>
+                <button class="syllabus-btn">View Syllabus <i class="fa-solid fa-chevron-down"></i></button>
+                <div class="course-syllabus">
+                  <p>Sessional based on the theory of course EEE 3117. <span class="hide-cite">[cite: 85]</span></p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION SECTION -->
+  <section class="sec" id="education">
+    <div class="w reveal">
+      <div class="sec-header">
+        <p class="sec-subtitle">Milestones</p>
+        <h2>Education <span class="highlight">Timeline</span></h2>
+        <p>A history of academic excellence and continuous scholarships.</p>
+      </div>
+      <div class="timeline">
+        
+        <div class="tl-item reveal">
+          <div class="tl-dot"></div>
+          <span class="tl-date">2022 — Present</span>
+          <div class="tl-content">
+            <h3>
+              <a href="https://www.ruet.ac.bd/" target="_blank">
+                <img src="https://logo.clearbit.com/ruet.ac.bd" alt="" width="36" height="36" onerror="this.style.display='none'">
+                B.Sc. in Electrical & Electronic Engineering
+              </a>
+            </h3>
+            <p>Rajshahi University of Engineering & Technology (RUET).</p>
+            <p style="margin-top: 1rem; color: var(--cu); font-weight: 700; font-size: 1.05rem; display: flex; align-items: center; gap: 8px;"><i class="fa-solid fa-award"></i> Technical Scholarship in 1st, 2nd, and 3rd year.</p>
+          </div>
+        </div>
+
+        <div class="tl-item reveal">
+          <div class="tl-dot"></div>
+          <span class="tl-date">Higher Secondary Certificate</span>
+          <div class="tl-content">
+            <h3>
+              <a href="https://ngdc.ac.bd/" target="_blank">
+                <img src="https://logo.clearbit.com/ngdc.ac.bd" alt="" width="36" height="36" onerror="this.style.display='none'">
+                New Govt. Degree College
+              </a>
+            </h3>
+            <p>Completed HSC with GPA 5.00 out of 5.00.</p>
+          </div>
+        </div>
+
+        <div class="tl-item reveal">
+          <div class="tl-dot"></div>
+          <span class="tl-date">Secondary School Certificate (2020)</span>
+          <div class="tl-content">
+            <h3>
+              <a href="https://harimohanschool.edu.bd/" target="_blank">
+                <img src="https://logo.clearbit.com/harimohanschool.edu.bd" alt="" width="36" height="36" onerror="this.style.display='none'">
+                Harimohan Govt. High School, Chapainawabganj
+              </a>
+            </h3>
+            <p>GPA 5.00 | General Scholarship</p>
+          </div>
+        </div>
+
+        <div class="tl-item reveal">
+          <div class="tl-dot"></div>
+          <span class="tl-date">Junior School Certificate (2017)</span>
+          <div class="tl-content">
+            <h3>
+              <a href="https://harimohanschool.edu.bd/" target="_blank">
+                <img src="https://logo.clearbit.com/harimohanschool.edu.bd" alt="" width="36" height="36" onerror="this.style.display='none'">
+                Harimohan Govt. High School, Chapainawabganj
+              </a>
+            </h3>
+            <p>GPA 5.00 | Talentpool Scholarship</p>
+          </div>
+        </div>
+
+        <div class="tl-item reveal">
+          <div class="tl-dot"></div>
+          <span class="tl-date">Primary School Certificate (2014)</span>
+          <div class="tl-content">
+            <h3>Nawabganj Model Govt. Primary School</h3>
+            <p>GPA 5.00 | Talentpool Scholarship</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section class="sec" id="contact">
+    <div class="w reveal">
+      <div class="sec-header" style="text-align: center; margin-bottom: 4rem;">
+        <p class="sec-subtitle">Connect</p>
+        <h2 style="justify-content: center; display: inline-flex; position: relative;">Get In <span class="highlight" style="margin-left: 10px;">Touch</span></h2>
+        <p style="margin: 0 auto;">For research collaboration, hardware projects, or academic questions, my inbox is always open.</p>
+      </div>
+      
+      <div class="grid-2">
+        <div style="display: grid; grid-template-columns: 1fr; gap: 1.5rem;">
+          <a href="mailto:rahatmh623@gmail.com" class="c-card glass-tilt" style="--hover-color: #EA4335;">
+            <div class="c-icon"><i class="fa-solid fa-envelope"></i></div>
+            <div>
+              <h4>Gmail</h4>
+              <p>rahatmh623@gmail.com</p>
+            </div>
+          </a>
+          
+          <a href="https://wa.me/8801741127148" target="_blank" rel="noopener" class="c-card glass-tilt" style="--hover-color: #25D366;">
+            <div class="c-icon"><i class="fa-brands fa-whatsapp"></i></div>
+            <div>
+              <h4>WhatsApp</h4>
+              <p>01741127148</p>
+            </div>
+          </a>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+            <a href="https://www.linkedin.com/in/md-mahdi-hasan-rahat" target="_blank" rel="noopener" class="c-card glass-tilt" style="--hover-color: #0A66C2; padding: 2.5rem; text-align: center; flex-direction: column; justify-content: center; gap: 1rem;">
+              <div class="c-icon" style="width: 70px; height: 70px; font-size: 2.2rem;"><i class="fa-brands fa-linkedin"></i></div>
+              <div><h4 style="margin:0;">LinkedIn</h4></div>
+            </a>
+
+            <a href="https://www.facebook.com/share/1Cc32co7ob/" target="_blank" rel="noopener" class="c-card glass-tilt" style="--hover-color: #1877F2; padding: 2.5rem; text-align: center; flex-direction: column; justify-content: center; gap: 1rem;">
+              <div class="c-icon" style="width: 70px; height: 70px; font-size: 2.2rem;"><i class="fa-brands fa-facebook"></i></div>
+              <div><h4 style="margin:0;">Facebook</h4></div>
+            </a>
+          </div>
+        </div>
+        
+        <form class="f glass-tilt" id="fm">
+          <h3 style="font: 800 1.8rem var(--d); margin-bottom: 0.5rem; color: var(--ink); display: flex; align-items: center; gap: 12px;"><i class="fa-solid fa-paper-plane" style="color: var(--blue);"></i> Send a Message</h3>
+          <div>
+            <label for="nm">Your Name</label>
+            <input id="nm" required placeholder="John Doe">
+          </div>
+          <div>
+            <label for="ms">Message</label>
+            <textarea id="ms" rows="5" required placeholder="Hello Mahdi, I'd like to discuss..."></textarea>
+          </div>
+          <button class="btn p" type="submit" style="width: 100%; justify-content: center; padding: 1.3rem; font-size: 1.2rem; margin-top: 0.5rem; border-radius: 14px;"><i class="fa-solid fa-rocket"></i> Send via Email</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="w">
+    &copy; <span id="yr"></span> Md. Mahdi Hasan Rahat. Engineered with precision.
+  </div>
+</footer>
+
+<script>
+const $ = s => document.querySelector(s);
+const root = document.documentElement;
+
+/* Custom Cursor Tracker (Glow Ring ONLY) */
+const cursorOutline = document.querySelector('.cursor-outline');
+
+window.addEventListener('mousemove', (e) => {
+  const posX = e.clientX;
+  const posY = e.clientY;
+
+  if(cursorOutline) {
+    cursorOutline.animate({
+      left: `${posX}px`,
+      top: `${posY}px`
+    }, { duration: 150, fill: "forwards" });
+  }
+});
+
+document.querySelectorAll('a, button, summary, .course-card, .interactive-card, .glass-tilt, .tab-btn').forEach(el => {
+  el.addEventListener('mouseover', () => {
+    document.body.classList.add('cursor-hover');
+  });
+  el.addEventListener('mouseleave', () => {
+    document.body.classList.remove('cursor-hover');
+  });
+});
+
+/* Particle Generation */
+const particleContainer = document.getElementById('particles');
+if(particleContainer) {
+    for (let i = 0; i < 30; i++) {
+      const particle = document.createElement('div');
+      particle.classList.add('particle');
+      const size = Math.random() * 5 + 2;
+      particle.style.width = `${size}px`;
+      particle.style.height = `${size}px`;
+      particle.style.left = `${Math.random() * 100}vw`;
+      particle.style.animationDuration = `${Math.random() * 10 + 5}s`;
+      particle.style.animationDelay = `${Math.random() * 5}s`;
+      particleContainer.appendChild(particle);
+    }
+}
+
+/* Mouse-Tracking Glow and Tilt Effect for Cards */
+document.querySelectorAll('.glass-card, .c-card, .f, .img-wrapper, .interactive-card, .explore-card').forEach(card => {
+  card.addEventListener('mousemove', e => {
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    
+    card.style.setProperty('--mouse-x', `${x}px`);
+    card.style.setProperty('--mouse-y', `${y}px`);
+    
+    if(card.classList.contains('glass-tilt')) {
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      const rotateX = ((y - centerY) / centerY) * -5;
+      const rotateY = ((x - centerX) / centerX) * 5;
+      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-5px)`;
+    }
+  });
+  
+  card.addEventListener('mouseleave', () => {
+    if(card.classList.contains('glass-tilt')) {
+      card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)`;
+    }
+  });
+});
+
+/* Interactive Course Tabs Logic */
+const tabBtns = document.querySelectorAll('.tab-btn');
+const tabContents = document.querySelectorAll('.tab-content');
+
+tabBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    tabBtns.forEach(b => b.classList.remove('active'));
+    tabContents.forEach(c => c.classList.remove('active'));
+    
+    btn.classList.add('active');
+    document.getElementById(btn.getAttribute('data-target')).classList.add('active');
+  });
+});
+
+/* Dynamic Typing Effect */
+const texts = ["EEE Undergrad", "Machine Learning Enthusiast", "Hardware Developer", "Researcher"];
+let count = 0;
+let index = 0;
+let currentText = "";
+let letter = "";
+let isDeleting = false;
+
+function typeWriter() {
+  if (count === texts.length) count = 0;
+  currentText = texts[count];
+
+  if (isDeleting) {
+    letter = currentText.slice(0, --index);
+  } else {
+    letter = currentText.slice(0, ++index);
+  }
+
+  const tw = document.getElementById('typewriter');
+  if(tw) tw.textContent = letter;
+
+  let typeSpeed = isDeleting ? 40 : 100;
+
+  if (!isDeleting && letter.length === currentText.length) {
+    typeSpeed = 2000;
+    isDeleting = true;
+  } else if (isDeleting && letter.length === 0) {
+    isDeleting = false;
+    count++;
+    typeSpeed = 500;
+  }
+  setTimeout(typeWriter, typeSpeed);
+}
+document.addEventListener('DOMContentLoaded', typeWriter);
+
+/* Scroll Reveal Observer */
+const revealOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
+const revealObserver = new IntersectionObserver((entries, observer) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('active');
+      observer.unobserve(entry.target);
+    }
+  });
+}, revealOptions);
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+/* Theme Toggle */
+const th = $('#th');
+let curTheme = localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+
+function setTheme(t) {
+  curTheme = t;
+  root.dataset.theme = t;
+  if(th) th.innerHTML = t === 'dark' ? '<i class="fa-solid fa-sun"></i>' : '<i class="fa-solid fa-moon"></i>';
+  localStorage.setItem('theme', t);
+}
+setTheme(curTheme);
+if(th) th.onclick = () => setTheme(curTheme === 'dark' ? 'light' : 'dark');
+
+/* Nav Active State & Progress Bar */
+const links = [...document.querySelectorAll('nav a')];
+const sections = document.querySelectorAll('main section[id]');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      links.forEach(a => {
+        a.classList.toggle('on', a.getAttribute('href') === '#' + entry.target.id);
+      });
+    }
+  });
+}, { rootMargin: '-30% 0px -70% 0px' });
+sections.forEach(sec => observer.observe(sec));
+
+const pg = $('#pg');
+window.addEventListener('scroll', () => {
+  const scrollTotal = root.scrollHeight - innerHeight;
+  if(pg) pg.style.transform = `scaleX(${scrollTotal > 0 ? scrollY / scrollTotal : 0})`;
+}, { passive: true });
+
+/* Form Submit */
+const fm = $('#fm');
+if(fm) {
+    fm.onsubmit = e => {
+      e.preventDefault();
+      location.href = `mailto:rahatmh623@gmail.com?subject=Message from ${encodeURIComponent($('#nm').value)}&body=${encodeURIComponent($('#ms').value)}`;
+    };
+}
+
+const yr = $('#yr');
+if(yr) yr.textContent = new Date().getFullYear();
+
+</script>
+</body>
+</html>
